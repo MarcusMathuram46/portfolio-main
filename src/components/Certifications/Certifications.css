@@ -1,0 +1,180 @@
+#cert-cont p{
+    display: block;
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
+    line-height: 30px;
+}
+
+.cardCertificate {
+    max-width: 1200px;
+    margin: 10px auto 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cardCertificate {
+    position: relative;
+    margin: 20px 10px;
+    width: 350px;
+    height: 400px;
+    background: whitesmoke;
+    transform-style: preserve-3d;
+    transform: perspective(2000px);
+    box-shadow: inset 10px 0 20px rgba(0, 0, 0, .2), 0 10px 20px rgba(0, 0, 0, .2);
+    transition: 1s;
+    border-radius: 10px;
+    border: 0;
+    outline: none;
+}
+
+.cardCertificate .BoxCertificate {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    transform-origin: top;
+    z-index: 1;
+    transition: 1s cubic-bezier(.15, 1.7, .84, .58);
+    overflow: hidden;
+}
+
+.cardCertificate .BoxCertificate img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 0;
+    outline: none;
+}
+
+.cardCertificate:hover .BoxCertificate {
+    transform: rotateX(0deg);
+}
+
+.cardCertificate .detailsCertificate {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+.btn-7 {
+    background: linear-gradient(0deg, rgba(255, 151, 0, 1) 0%, rgba(251, 75, 2, 1) 100%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+
+.btn-7 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-7:before,
+.btn-7:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: rgba(251, 75, 2, 1);
+    box-shadow:
+        -7px -7px 20px 0px rgba(255, 255, 255, .9),
+        -4px -4px 5px 0px rgba(255, 255, 255, .9),
+        7px 7px 20px 0px rgba(0, 0, 0, .2),
+        4px 4px 5px 0px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+}
+
+.btn-7:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn-7:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn-7:hover {
+    color: rgba(251, 75, 2, 1);
+    background: transparent;
+}
+
+.btn-7:hover:before {
+    height: 100%;
+}
+
+.btn-7:hover:after {
+    width: 100%;
+}
+
+.btn-7 span:before,
+.btn-7 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: rgba(251, 75, 2, 1);
+    box-shadow:
+        -7px -7px 20px 0px rgba(255, 255, 255, .9),
+        -4px -4px 5px 0px rgba(255, 255, 255, .9),
+        7px 7px 20px 0px rgba(0, 0, 0, .2),
+        4px 4px 5px 0px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+}
+
+.btn-7 span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.btn-7 span:after {
+    height: 2px;
+    width: 0%;
+}
+
+.btn-7 span:hover:before {
+    height: 100%;
+}
+
+.btn-7 span:hover:after {
+    width: 100%;
+}
+
+.sliderButton.left1 {
+    left: 10px;
+}
+
+.sliderButton.right1 {
+    right: 10px;
+}
