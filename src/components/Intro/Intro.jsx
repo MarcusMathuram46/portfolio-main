@@ -32,22 +32,28 @@ function Intro() {
   }
 
   return (
-      <section id='intro'>
-        <div id='left-content'>
-          <h1 id='title'>Hello, I'm {titleText}</h1><br/>
-          <h1 id='fsd'>{fsdText}</h1>
-          <p id='para'>
-            I'm very much interested in creating websites and apps using MERN Stack (MongoDB, Express.js, React, Node.js)
-          </p>
-          <button className='resume' onClick={handleResumeClick}>View Resume</button>
+    <section id="intro">
+      <div id="left-content">
+        <h1 id="title">Hello, I'm {titleText}</h1>
+        <br />
+        <h1 id="fsd">{fsdText}</h1>
+        <p id="para">
+          I'm very much interested in creating websites and apps using
+          technology stack called MERN (MongoDB, Express.js, React, Node.js)
+        </p>
+        <div style={{display:'flex'}}>
+          <button className="resume glow-on-hover" onClick={handleResumeClick}>
+            View / Download Resume
+          </button>
         </div>
-        <div id='right-content'>
+      </div>
+      {/* <div id='right-content'>
           <div id='end'>
             <img src='' alt='' className='rounded-image' />
           </div>
-        </div>
-      </section>
-  )
+        </div> */}
+    </section>
+  );
 }
 
 export default Intro

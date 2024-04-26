@@ -33,7 +33,7 @@ const education = [
 function Education() {
   return (
     <section id='education' className='edu-container'>
-      <h2 id='conttitle'>STUDIES</h2>
+      <h2 id='edu-title'>STUDIES</h2>
       <div className='edu-card-container'>
         {education.map((data, i) => (
           <div className='edu-card' key={i}>

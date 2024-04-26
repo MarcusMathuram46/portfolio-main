@@ -53,7 +53,7 @@ const Projects = ({ projects }) => {
 
   return (
     <section id="projects">
-      <h1 id="conttitle">Projects</h1>
+      <h1 id="project-title">Projects</h1>
       <div className="sliderContainer" ref={containerRef}>
         <div className="categories">
           <button

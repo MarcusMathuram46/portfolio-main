@@ -159,13 +159,13 @@ function App() {
       <Navbar />
       <Intro />
       <About />
-      <Projects projects={ projects } />
       <Skills />
-      <Certifications />
+      <Projects projects={projects} />
       <Education />
+      <Certifications />
       <Contact />
-    </div>    
-  )
+    </div>
+  );
 }
 
 export default App

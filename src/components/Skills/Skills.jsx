@@ -4,7 +4,7 @@ import "./Skills.css"
 function Skills() {
   return (
     <section id='skills'>
-      <h2 className='section-titles' id='contitle'>Skills</h2>
+      <h2 className='section-titles' id='conttitle'>Skills</h2>
 
       <div className='skill'>
         <svg xmlns='http://www.w3.org/2000/svg' viewBox="0 0 48 48" width="90px" height="90px">

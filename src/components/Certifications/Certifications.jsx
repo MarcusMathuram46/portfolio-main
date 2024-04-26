@@ -100,7 +100,7 @@ function Certification() {
   return (
     <section id="certification">
       <div>
-        <h1 id="conttitle">Certification</h1>
+        <h1 id="cert-title">Certification</h1>
         <div id="cert-cont">
           <p>
             Proficient in MongoDB, Express.js, React.js, and Node.js (MERN)
