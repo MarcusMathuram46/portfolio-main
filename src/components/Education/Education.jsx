@@ -27,7 +27,7 @@ const education = [
     title: "SECONDARY SCHOOL",
     percentage: 89,
     description:
-      "Completed SSLX with a remarkable 89% from Mahatma Matriculation Higher Secondary School(Madurai).",
+      "Completed SSLC with a remarkable 89% from Mahatma Matriculation Higher Secondary School(Madurai).",
   },
 ];
 function Education() {
