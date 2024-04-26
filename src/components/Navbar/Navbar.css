@@ -1,32 +1,32 @@
 nav {
-    background-color: #4d8fd6;
+    background-color: #333;
     padding: 10px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
+    margin: 0 15px;
     text-align: center;
     padding: 10px;
-    margin: 0 15px;
 }
 
 nav a:hover{
-    background-color: rgb(129, 175, 202);
+    background-color: rgb(90, 100, 96);
     border-radius: 10px;
 }
 
 ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 li {
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 20px;
     margin-top: 15px;
-    color: rgb(8, 175, 246);
+    color:rgb(8, 175, 246);
     font-size: 20px;
 }
 
@@ -34,19 +34,30 @@ li {
     text-align: center;
     font-size: 30px;
     padding-left: 10px;
+    text-shadow:
+        0px 0px 10px rgb(8, 175, 246),
+        0px 0px 20px rgb(8, 175, 246),
+        0px 0px 50px rgb(8, 175, 246);
     color: rgb(204, 217, 233);
-    /* text-shadow: #4d8fd6; */
+    /* background: linear-gradient(99deg,whitesmoke,#333);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 3s linear infinite;
+    position: relative; */
 }
 
-@keyframes shine {
-    0% {
+@keyframes shine{
+    0%{
         background-position-x: -500%;
     }
-    100% {
+    100%{
         background-position-x: 500%;
     }
 }
-
 #checkbox {
     display: none;
 }
@@ -55,8 +66,8 @@ li {
     position: relative;
     width: 40px;
     height: 40px;
-    display: flex;
     cursor: pointer;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -64,26 +75,26 @@ li {
     transition-duration: .3s;
 }
 
-.drops {
+.bars {
     width: 100%;
-    height: 5px;
+    height: 4px;
+    background-color: rgb(253, 255, 243);
     border-radius: 5px;
-    background-color: aliceblue;
     transition-duration: .3s;
 }
 
-#checkbox:checked+.toggle #drop2 {
-    transform: translateY(15px) rotate(60deg);
+#checkbox:checked+.toggle #bar2 {
+    transform: translateY(14px) rotate(60deg);
     margin-left: 0;
     transform-origin: right;
     transition-duration: .3s;
     z-index: 2;
 }
 
-#checkbox:checked+.toggle #drop1 {
+#checkbox:checked+.toggle #bar1 {
     transform: translateY(28px) rotate(-60deg);
-    transform-origin: left;
     transition-duration: .3s;
+    transform-origin: left;
     z-index: 1;
 }
 
@@ -93,16 +104,20 @@ li {
 
 @media (min-width: 768px) {
 
-    #checkbox, .toggle, .drops {
+    #checkbox,
+    .toggle,
+    .bars {
         display: none;
     }
+
+    
 }
 
-@media (min-width: 768px) {
-    nav {
+@media (max-width: 768px) {
+    nav{
         height: 55px;
     }
-    #portfolio {
+    #portfolio{
         margin-top: 8px;
         color: rgb(204, 217, 233);
     }
@@ -111,7 +126,7 @@ li {
         padding: 0;
         display: flex;
         flex-direction: column;
-        background-color:  #4d8fd6;
+        background-color: #333;
         position: absolute;
         top: 68px;
         right: 8.8px;
@@ -121,23 +136,40 @@ li {
         transform: translateY(-20px);
         transition: opacity 0.3s ease, transform 0.3s ease;
     }
-    
+
     div ul.show {
         opacity: 1;
         transform: translateY(0);
     }
-    
+
     div ul li {
         padding: 15px;
         text-align: center;
-        border-bottom: 1px solid rgb(8, 175, 246);
+        border-bottom: 1px solid #555;
     }
 
-    #drop-down {
+    #right {
         position: absolute;
         top: 0;
         right: 0;
         margin: 20px 30px;
         cursor: pointer;
     }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
