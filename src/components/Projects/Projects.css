@@ -1,6 +1,6 @@
 #project-title {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(120deg, #13344b, #8f39ac, rgb(92, 246, 8));
+    background: linear-gradient(90deg, #138af3, #f903d8);
     background-clip: text;
     color: transparent;
     transition: color 0.3s ease-in-out;
@@ -10,6 +10,7 @@
     margin: 5%;
     text-align: center;
 }
+
 
 .containerProject {
     max-width: 1200px;
@@ -162,13 +163,3 @@
     background-color: #0056b3;
 }
 
-#project-title {
-    background: linear-gradient(90deg, #138af3, #f903d8);
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-    letter-spacing: 2px;
-    font-size: 34px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
