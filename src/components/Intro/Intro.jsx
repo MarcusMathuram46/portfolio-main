@@ -26,7 +26,7 @@ function Intro() {
   }, []);
 
   const handleResumeClick = (event) => {
-    const resumeUrl = 'https://drive.google.com/file/d/1awZo4H7LHvnMw7TG-h47xeuzoLabwOmn/view?usp=drivesdk ';
+    const resumeUrl = 'https://drive.google.com/file/d/1sGtSZDK7FR_0flbpfedHSR32tbDz5-nx/view?usp=drivesdk';
 
     window.open(resumeUrl, '_blank');
   }
