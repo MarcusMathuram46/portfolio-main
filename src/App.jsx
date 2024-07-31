@@ -21,16 +21,6 @@ function App() {
       type: "fullstack",
     },
     {
-      title: "Chat Application",
-      description: "Build a chat applications using Socket.IO for instant messaging.Users can create accounts, join chat rooms, and send messages to other users in real-time with your Fav Emoji",
-      toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Socket.IO"],
-      image: "https://i.postimg.cc/SQT5XPs3/Ecommerce1.png",
-      sourceCode:
-        "https://github.com/MarcusMathuram46/chat-application",
-      liveDemo: "http://marcus-guvi.s3-website.ap-south-1.amazonaws.com/",
-      type: "fullstack",
-    },
-    {
       title: "Notes Application",
       description: "Develop a notes application where users can create, edit, and delete notes. Implement user authentication to allow users to securely manage their notes. ",
       toolsUsed: ["Node.js", "Express", "MongoDB", "React"],
@@ -48,6 +38,16 @@ function App() {
       sourceCode:
         "https://github.com/MarcusMathuram46/Resume-Builder-FE",
       liveDemo: "https://euphonious-moonbeam-7d3b46.netlify.app/",
+      type: "fullstack",
+    },
+    {
+      title: "Chat Application",
+      description: "Build a chat applications using Socket.IO for instant messaging.Users can create accounts, join chat rooms, and send messages to other users in real-time with your Fav Emoji",
+      toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Socket.IO"],
+      image: "https://i.postimg.cc/KjNMKZVT/Chat1.png",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/chat-application",
+      liveDemo: "",
       type: "fullstack",
     },
     {
