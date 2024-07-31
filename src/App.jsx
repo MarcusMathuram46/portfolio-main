@@ -21,6 +21,36 @@ function App() {
       type: "fullstack",
     },
     {
+      title: "Chat Application",
+      description: "Build a chat applications using Socket.IO for instant messaging.Users can create accounts, join chat rooms, and send messages to other users in real-time with your Fav Emoji",
+      toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Socket.IO"],
+      image: "https://i.postimg.cc/SQT5XPs3/Ecommerce1.png",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/chat-application",
+      liveDemo: "http://marcus-guvi.s3-website.ap-south-1.amazonaws.com/",
+      type: "fullstack",
+    },
+    {
+      title: "Notes Application",
+      description: "Develop a notes application where users can create, edit, and delete notes. Implement user authentication to allow users to securely manage their notes. ",
+      toolsUsed: ["Node.js", "Express", "MongoDB", "React"],
+      image: "https://i.postimg.cc/wx0vHTk6/Notes2.png",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/note-app-fe",
+      liveDemo: "https://eclectic-alfajores-b579fa.netlify.app/",
+      type: "fullstack",
+    },
+    {
+      title: "Resume Builder",
+      description: "Create and customize professional resumes effortlessly with a feature-rich resume builder. Tailor your resume to stand out with various templates and styling options.",
+      toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Redux"],
+      image: "https://i.postimg.cc/WbFSK1cH/ResumeB.png",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/Resume-Builder-FE",
+      liveDemo: "https://euphonious-moonbeam-7d3b46.netlify.app/",
+      type: "fullstack",
+    },
+    {
       title: "Rest Countries Weather",
       description:
         "Discover detailed information about countries and regions around the world. This interactive explorer, developed with DOM , Node.js and powered by the REST Countries API, allows users to explore diverse geographical and cultural data.",
