@@ -44,10 +44,10 @@ function App() {
       title: "Chat Application",
       description: "Build a chat applications using Socket.IO for instant messaging.Users can create accounts, join chat rooms, and send messages to other users in real-time with your Fav Emoji",
       toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Socket.IO"],
-      image: "https://i.postimg.cc/KjNMKZVT/Chat1.png",
+      image: "https://i.postimg.cc/pLqdTT2H/chat3.png",
       sourceCode:
-        "https://github.com/MarcusMathuram46/chat-app-fsd",
-      liveDemo: "https://chat-app-fsd.netlify.app/login",
+        "https://github.com/MarcusMathuram46/Chat-App-FE-main",
+      liveDemo: "https://chat-app-fs.netlify.app/",
       type: "fullstack",
     },
     {
