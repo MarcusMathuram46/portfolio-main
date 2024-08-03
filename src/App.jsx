@@ -46,8 +46,8 @@ function App() {
       toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Socket.IO"],
       image: "https://i.postimg.cc/KjNMKZVT/Chat1.png",
       sourceCode:
-        "https://github.com/MarcusMathuram46/chat-application",
-      liveDemo: "",
+        "https://github.com/MarcusMathuram46/chat-app-fsd",
+      liveDemo: "https://chat-app-fsd.netlify.app/login",
       type: "fullstack",
     },
     {
