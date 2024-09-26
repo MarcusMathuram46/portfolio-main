@@ -51,6 +51,16 @@ function App() {
       type: "fullstack",
     },
     {
+      title: "ECommerce Landing Page",
+      description: "building a full stack ECommerce landing page using the MERN stack,to create a seamless shopping experience, allowing users to browse products, search by category.",
+      toolsUsed: ["Node.js", "Express", "MongoDB", "ReactJS"],
+      image: "https://i.postimg.cc/QMyYQf2s/Eccom-landing-page.png",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/eccom-frontend",
+      liveDemo: "https://eccomlandingpage.netlify.app/",
+      type: "fullstack",
+    },
+    {
       title: "Rest Countries Weather",
       description:
         "Discover detailed information about countries and regions around the world. This interactive explorer, developed with DOM , Node.js and powered by the REST Countries API, allows users to explore diverse geographical and cultural data.",
