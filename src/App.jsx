@@ -61,6 +61,26 @@ function App() {
       type: "fullstack",
     },
     {
+      title: "Scale",
+      description: "Scale AI empowers businesses and governments to unlock the potential of generative AI by leveraging high-quality data. Its Scale Data Engine and GenAI Platform enable enterprises to fine-tune foundation models like OpenAI and Meta for tailored applications. The SEAL Initiative drives cutting-edge AI research with a focus on safety and evaluation. Trusted by industry leaders like Microsoft, Toyota, and Cisco, Scale provides innovative solutions for enterprises and the public sector. With partnerships across top AI providers, Scale transforms data into powerful, sustainable AI programs.",
+      toolsUsed: ["framer-motion","ReactJS"],
+      image: "https://i.postimg.cc/yYfvFfPN/scale.png",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/scale",
+      liveDemo: "https://scale-marcus.netlify.app/",
+      type: "miniproject",
+    },
+    {
+      title: "Game",
+      description: "This project showcases interactive web components: Element Transfer enables seamless movement of items between lists, Box Split divides containers dynamically, and Game offers engaging gameplay. Features like Infinite Scroll enhance content loading, while Nested List organizes data hierarchically for better navigation.",
+      toolsUsed: ["ReactJS"],
+      image: "https://i.postimg.cc/vHHL0WqS/game.png",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/game-reactjs",
+      liveDemo: "https://game-marcus.netlify.app/",
+      type: "miniproject",
+    },
+    {
       title: "Rest Countries Weather",
       description:
         "Discover detailed information about countries and regions around the world. This interactive explorer, developed with DOM , Node.js and powered by the REST Countries API, allows users to explore diverse geographical and cultural data.",
