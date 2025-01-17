@@ -62,7 +62,7 @@ function App() {
     },
     {
       title: "Scale",
-      description: "Scale AI empowers businesses and governments to unlock the potential of generative AI by leveraging high-quality data. Its Scale Data Engine and GenAI Platform enable enterprises to fine-tune foundation models like OpenAI and Meta for tailored applications. The SEAL Initiative drives cutting-edge AI research with a focus on safety and evaluation. Trusted by industry leaders like Microsoft, Toyota, and Cisco, Scale provides innovative solutions for enterprises and the public sector. With partnerships across top AI providers, Scale transforms data into powerful, sustainable AI programs.",
+      description: "Scale AI empowers businesses and governments to unlock the potential of generative AI by leveraging high-quality data. Its Scale Data Engine and GenAI Platform enable enterprises to fine-tune foundation models like OpenAI and Meta for tailored applications. The SEAL Initiative drives cutting-edge AI research with a focus on safety and evaluation.",
       toolsUsed: ["framer-motion","ReactJS"],
       image: "https://i.postimg.cc/yYfvFfPN/scale.png",
       sourceCode:
