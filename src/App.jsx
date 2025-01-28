@@ -12,7 +12,7 @@ function App() {
   const projects = [
     {
       title: "Ecommerce Application",
-      description: "Build a Ecommerce application using Redux and  ",
+      description: "Build a Ecommerce application using Redux.",
       toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Redux"],
       image: "https://i.postimg.cc/SQT5XPs3/Ecommerce1.png",
       sourceCode:
