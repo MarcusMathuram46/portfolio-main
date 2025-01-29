@@ -17,7 +17,7 @@ function App() {
       image: "https://i.postimg.cc/SQT5XPs3/Ecommerce1.png",
       sourceCode:
         "https://github.com/MarcusMathuram46/ecommerce-frontend-mainn",
-      liveDemo: "https://ecommerce-marcus46.netlify.app/",
+      liveDemo: "https://marcus-ecom.netlify.app/",
       type: "fullstack",
     },
     {
