@@ -61,7 +61,7 @@
 
 .img-wrapper h2 {
     background: tomato;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     color: #fff;
     text-align: center;
     text-transform: uppercase;

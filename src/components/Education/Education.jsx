@@ -1,5 +1,6 @@
-import React from 'react'
-import "./Education.css"
+import React from "react";
+import { motion } from "framer-motion";
+import "./Education.css";
 
 const education = [
   {
@@ -9,7 +10,7 @@ const education = [
     title: "ELECTRONICS AND INSTRUMENTATION ENGINEERING",
     percentage: 79,
     description:
-      "Completed Bachelor of Engineering in Electronics and Instrumentation Engineering (EIE) with a remarkable 79% from Jeppiaar Engineering College(Chennai).",
+      "Completed Bachelor of Engineering in Electronics and Instrumentation Engineering (EIE) with a remarkable 79% from Jeppiaar Engineering College (Chennai).",
   },
   {
     school: "Mahatma Matriculation Higher Secondary School",
@@ -18,7 +19,7 @@ const education = [
     title: "HIGHER SECONDARY",
     percentage: 70,
     description:
-      "Completed HSC with a remarkable 70% from Mahatma Matriculation Higher Secondary School(Madurai).",
+      "Completed HSC with a remarkable 70% from Mahatma Matriculation Higher Secondary School (Madurai).",
   },
   {
     school: "Mahatma Matriculation Higher Secondary School",
@@ -27,30 +28,51 @@ const education = [
     title: "SECONDARY SCHOOL",
     percentage: 89,
     description:
-      "Completed SSLC with a remarkable 89% from Mahatma Matriculation Higher Secondary School(Madurai).",
+      "Completed SSLC with a remarkable 89% from Mahatma Matriculation Higher Secondary School (Madurai).",
   },
 ];
+
 function Education() {
   return (
-    <section id='education' className='edu-container'>
-      <h2 id='edu-title'>STUDIES</h2>
-      <div className='edu-card-container'>
-        {education.map((data, i) => (
-          <div className='edu-card' key={i}>
-            <div className='edu-card__image'>
-              <img src={data.img} alt={data.title} />
-              <h1 className='educ-title'>{data.level}</h1>
-            </div>
-            <div className='edu-card__content'>
-              <p className='edu-card__title'>{data.title}</p>
-              <p className='edu-card__description'>{data.description}</p>
-            </div>
-          </div>
-        ))}
+    <motion.section
+      id="education"
+      className="edu-container"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <motion.h2
+        id="edu-title"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        STUDIES
+      </motion.h2>
 
+      <div className="edu-card-container">
+        {education.map((data, i) => (
+          <motion.div
+            className="edu-card"
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2, duration: 0.6, ease: "easeOut" }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="edu-card__image">
+              <img src={data.img} alt={data.title} />
+              <motion.h1 className="educ-title">{data.level}</motion.h1>
+            </div>
+            <div className="edu-card__content">
+              <p className="edu-card__title">{data.title}</p>
+              <p className="edu-card__description">{data.description}</p>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  )
+    </motion.section>
+  );
 }
 
-export default Education
+export default Education;

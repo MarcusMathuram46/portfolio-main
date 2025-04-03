@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 import "./Certifications.css";
 
 function Certification() {
@@ -16,90 +17,33 @@ function Certification() {
   ];
 
   const [startIndex, setStartIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef(null);
-  const animationRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false); // Flag to track animation pause
 
   const totalCards = certificates.length;
   const screenWidth = window.innerWidth;
+  const cardsToShow = screenWidth < 755 ? 1 : screenWidth < 1140 ? 2 : 3;
+  const numIndicators = Math.ceil(totalCards / cardsToShow);
 
-  let cardsToShow, numIndicators;
-  if (screenWidth < 755) {
-    cardsToShow = 1;
-    numIndicators = totalCards;
-  } else if (screenWidth >= 755 && screenWidth < 1140) {
-    cardsToShow = 2;
-    numIndicators = Math.ceil(totalCards / cardsToShow);
-  } else {
-    cardsToShow = 3;
-    numIndicators = Math.ceil(totalCards / cardsToShow);
-  }
+  const nextSlide = () => setStartIndex((prevIndex) => (prevIndex + 1) % totalCards);
+  const prevSlide = () => setStartIndex((prevIndex) => (prevIndex - 1 + totalCards) % totalCards);
 
-  const nextSlide = () => {
-    setStartIndex((prevIndex) => (prevIndex + 1) % totalCards);
-  };
-
-  const prevSlide = () => {
-    setStartIndex((prevIndex) => (prevIndex - 1 + totalCards) % totalCards);
-  };
-
-  const updateIndexWithLoop = (newIndex) => {
-    setStartIndex((prevIndex) => (newIndex + totalCards) % totalCards);
-  };
-
-  const handleIndicatorClick = (index) => {
-    const newIndex = index * cardsToShow;
-    updateIndexWithLoop(newIndex);
-  };
-
-  const isActive = (index) => {
-    const start = index * cardsToShow;
-    const end = start + cardsToShow;
-    return startIndex >= start && startIndex < end;
-  };
-
-  // useEffect(() => {
-  //   const container = containerRef.current;
-
-  //   const handleMouseEnter = () => {
-  //     setIsPaused(true); // Pause animation on mouse enter
-  //   };
-
-  //   const handleMouseLeave = () => {
-  //     setIsPaused(false); // Resume animation on mouse leave
-  //   };
-
-  //   container.addEventListener("mouseenter", handleMouseEnter);
-  //   container.addEventListener("mouseleave", handleMouseLeave);
-
-  //   return () => {
-  //     container.removeEventListener("mouseenter", handleMouseEnter);
-  //     container.removeEventListener("mouseleave", handleMouseLeave);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const container = containerRef.current;
-
-  //   const startAnimation = () => {
-  //     if (!isPaused) {
-  //       // Check if animation is paused
-  //       nextSlide();
-  //       animationRef.current = requestAnimationFrame(startAnimation);
-  //     }
-  //   };
-
-  //   const handle = setTimeout(startAnimation, 3000);
-
-  //   return () => {
-  //     clearTimeout(handle);
-  //     cancelAnimationFrame(animationRef.current);
-  //   };
-  // }, [startIndex, isPaused]);
+  useEffect(() => {
+    const autoSlide = setInterval(() => {
+      if (!isPaused) nextSlide();
+    }, 3000);
+    
+    return () => clearInterval(autoSlide);
+  }, [startIndex, isPaused]);
 
   return (
     <section id="certification">
-      <div>
+      {/* Title & Description */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
         <h1 id="cert-title">Certification</h1>
         <div id="cert-cont">
           <p>
@@ -107,62 +51,89 @@ function Certification() {
             stack showcased through hands-on projects.
           </p>
           <p>
-            Applied MERN stack knowledge to develop dynamic and responsive web
-            applications.
+            Applied MERN stack knowledge to develop dynamic and responsive web applications.
           </p>
           <p>
-            Demonstrated effective problem-solving skills in addressing
-            development challenges.
+            Demonstrated effective problem-solving skills in addressing development challenges.
           </p>
           <p>
-            Equipped with industry-relevant skills, poised to contribute to
-            dynamic development teams with a focus on collaborative success.
+            Equipped with industry-relevant skills, poised to contribute to dynamic development teams.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="sliderContainer" ref={containerRef}>
-        <div className="containerProject">
+      {/* Slider */}
+      <div
+        className="sliderContainer"
+        ref={containerRef}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <motion.div
+          className="containerProject"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           {Array.from({ length: cardsToShow }).map((_, index) => (
-            <div key={index} className="cardCertificate">
+            <motion.div
+              key={index}
+              className="cardCertificate"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
               <div className="BoxCertificate">
                 <img
                   src={certificates[(startIndex + index) % totalCards]}
-                  alt={`Certificates ${startIndex + index + 1}`}
+                  alt={`Certificate ${startIndex + index + 1}`}
                 />
                 <div className="detailsCertificate">
-                  <button
+                  <motion.button
                     className="custom-btn btn-7"
-                    onClick={() =>
-                      window.open(
-                        certificates[(startIndex + index) % totalCards],
-                        "_blank"
-                      )
-                    }
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    onClick={() => window.open(certificates[(startIndex + index) % totalCards], "_blank")}
                   >
                     <span>View Certificate</span>
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Navigation Buttons */}
         {totalCards > 1 && (
           <>
-            <button className="sliderButton left1" onClick={prevSlide}>
+            <motion.button
+              className="sliderButton left1"
+              onClick={prevSlide}
+              whileHover={{ scale: 1.2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <FaArrowLeft />
-            </button>
-            <button className="sliderButton right1" onClick={nextSlide}>
+            </motion.button>
+            <motion.button
+              className="sliderButton right1"
+              onClick={nextSlide}
+              whileHover={{ scale: 1.2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <FaArrowRight />
-            </button>
+            </motion.button>
           </>
         )}
+
+        {/* Indicators */}
         <div className="indicators">
           {Array.from({ length: numIndicators }).map((_, index) => (
-            <span
+            <motion.span
               key={index}
-              className={`indicator ${isActive(index) ? "active" : ""}`}
-              onClick={() => handleIndicatorClick(index)}
+              className={`indicator ${index === Math.floor(startIndex / cardsToShow) ? "active" : ""}`}
+              onClick={() => setStartIndex(index * cardsToShow)}
+              whileHover={{ scale: 1.2 }}
+              transition={{ type: "spring", stiffness: 300 }}
             />
           ))}
         </div>

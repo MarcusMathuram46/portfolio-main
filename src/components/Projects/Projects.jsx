@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Projects.css";
 
 const Projects = ({ projects }) => {
@@ -7,26 +8,12 @@ const Projects = ({ projects }) => {
   const [category, setCategory] = useState("all");
   const containerRef = useRef(null);
 
-  // const screenWidth = window.innerWidth;
-
-  let cardsToShow = 1;
-  // if (screenWidth < 755) {
-  //   cardsToShow = 1;
-  // }
-  // else if (screenWidth >= 755 && screenWidth < 1140) {
-  //   cardsToShow = 2;
-  // }
-  // else {
-  //   cardsToShow = 2;
-  // }
-
   const filteredProjects =
     category === "all"
       ? projects
       : projects.filter((project) => project.type === category);
 
   const totalCards = filteredProjects.length;
-  const numIndicators = totalCards;
 
   const nextSlide = () => {
     setStartIndex((prevIndex) => (prevIndex + 1) % totalCards);
@@ -36,111 +23,118 @@ const Projects = ({ projects }) => {
     setStartIndex((prevIndex) => (prevIndex - 1 + totalCards) % totalCards);
   };
 
-  const updateIndexWithLoop = (newIndex) => {
-    setStartIndex((prevIndex) => (newIndex + totalCards) % totalCards);
-  };
-
   const handleIndicatorClick = (index) => {
-    const newIndex = index * cardsToShow;
-    updateIndexWithLoop(newIndex);
-  };
-
-  const isActive = (index) => {
-    const start = index * cardsToShow;
-    const end = start + cardsToShow;
-    return startIndex >= start && startIndex < end;
+    setStartIndex(index);
   };
 
   return (
-    <section id="projects">
-      <h1 id="project-title">Projects</h1>
-      <div className="sliderContainer" ref={containerRef}>
-        <div className="categories">
-          <button
-            className={category === "all" ? "active" : ""}
-            onClick={() => setCategory("all")}
-          >
-            All
-          </button>
-          <button
-            className={category === "fullstack" ? "active" : ""}
-            onClick={() => setCategory("fullstack")}
-          >
-            Full Stack
-          </button>
-          <button
-            className={category === "miniproject" ? "active" : ""}
-            onClick={() => setCategory("miniproject")}
-          >
-            Mini Project
-          </button>
-        </div>
+    <motion.section
+      id="projects"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      <motion.h1 id="project-title" initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}>
+        Projects
+      </motion.h1>
 
-        <div className="containerProject">
-          {Array.from({ length: cardsToShow }).map((_, index) => {
-            const projectIndex = (startIndex + index) % totalCards;
-            const project = filteredProjects[projectIndex];
-            return (
-              <div key={index} className="cardProject">
-                <h2 style={{ textAlign: "center" }}>{project.title}</h2>
-                <img
+      <div className="sliderContainer" ref={containerRef}>
+        {/* Category Buttons */}
+        <motion.div className="categories">
+          {["all", "fullstack", "miniproject"].map((type) => (
+            <motion.button
+              key={type}
+              className={category === type ? "active" : ""}
+              onClick={() => setCategory(type)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {type === "all" ? "All" : type.charAt(0).toUpperCase() + type.slice(1)}
+            </motion.button>
+          ))}
+        </motion.div>
+
+        {/* Project Cards */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            className="containerProject"
+            key={startIndex}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.5 }}
+          >
+            {filteredProjects.length > 0 && (
+              <motion.div className="cardProject">
+                <h2 style={{ textAlign: "center" }}>{filteredProjects[startIndex].title}</h2>
+                <motion.img
                   style={{ width: "250px", height: "150px", marginLeft: "13%" }}
-                  src={project.image}
-                  alt={`Project ${projectIndex + 1}`}
+                  src={filteredProjects[startIndex].image}
+                  alt={`Project ${startIndex + 1}`}
                   className="projectImage"
+                  whileHover={{ scale: 1.05 }}
                 />
-                <div className="detailsProject">
-                  <p>{project.description}</p>
+                <motion.div className="detailsProject">
+                  <p>{filteredProjects[startIndex].description}</p>
                   <div>
                     <h3 style={{ marginBottom: "5px" }}>
                       <strong>Tools Used:</strong>
                     </h3>
-                    {project.toolsUsed.join(", ")}
+                    {filteredProjects[startIndex].toolsUsed.join(", ")}
                   </div>
                   <div className="buttons">
-                    <a
-                      href={project.sourceCode}
+                    <motion.a
+                      href={filteredProjects[startIndex].sourceCode}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn1"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       Source Code
-                    </a>
-                    <a
-                      href={project.liveDemo}
+                    </motion.a>
+                    <motion.a
+                      href={filteredProjects[startIndex].liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn1"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       Live Demo
-                    </a>
+                    </motion.a>
                   </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation Buttons */}
         {totalCards > 1 && (
           <>
-            <button className="sliderButton left" onClick={prevSlide}>
+            <motion.button className="sliderButton left" onClick={prevSlide} whileHover={{ scale: 1.1 }}>
               <FaArrowLeft />
-            </button>
-            <button className="sliderButton right" onClick={nextSlide}>
+            </motion.button>
+            <motion.button className="sliderButton right" onClick={nextSlide} whileHover={{ scale: 1.1 }}>
               <FaArrowRight />
-            </button>
+            </motion.button>
           </>
         )}
-        <div className="indicators">
-          {Array.from({ length: numIndicators }).map((_, index) => (
-            <span
+
+        {/* Indicators */}
+        <motion.div className="indicators">
+          {Array.from({ length: totalCards }).map((_, index) => (
+            <motion.span
               key={index}
-              className={`indicator ${isActive(index) ? "active" : ""}`}
+              className={`indicator ${startIndex === index ? "active" : ""}`}
               onClick={() => handleIndicatorClick(index)}
+              whileHover={{ scale: 1.3 }}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

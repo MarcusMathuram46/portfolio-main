@@ -1,9 +1,17 @@
-import React from 'react'
-import "./About.css"
+import React from "react";
+import { motion } from "framer-motion";
+import "./About.css";
+
 function About() {
   return (
     <section id="about" className="about-section">
-      <div className="content">
+      {/* Content Section */}
+      <motion.div
+        className="content"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+      >
         <p className="lightning-text">
           Welcome to my portfolio! I'm <span>Marcus</span>, a passionate and
           dedicated <span>FULL STACK DEVELOPER</span>. With a background in{" "}
@@ -25,46 +33,57 @@ function About() {
           and technologies. I am dedicated to continuous learning and
           improvement.
         </p>
-      </div>
-      <div className="image-area">
+      </motion.div>
+
+      {/* Image & Social Links */}
+      <motion.div
+        className="image-area"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
         <div className="img-wrapper">
           <img
             src="https://i.postimg.cc/vBcXRtfK/Marcus-King.jpg"
             alt="marcus"
           />
           <h2>Marcus</h2>
-          <ul>
-            <li>
-              <a
-                href="https://github.com/MarcusMathuram46?tab=repositories"
-                target="_blank"
+
+          {/* Social Icons */}
+          <motion.ul>
+            {[
+              {
+                href: "https://github.com/MarcusMathuram46?tab=repositories",
+                icon: "fab fa-github",
+              },
+              {
+                href: "mailto:marcus.mathuram7@gmail.com",
+                icon: "fab fa-google",
+              },
+              {
+                href: "https://wa.me/+919688597790",
+                icon: "fab fa-whatsapp",
+              },
+              {
+                href: "https://www.linkedin.com/in/marcus-mathuram-3a9701228/",
+                icon: "fab fa-linkedin",
+              },
+            ].map((link, index) => (
+              <motion.li
+                key={index}
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <i class="fab fa-github"></i>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:marcus.mathuram7@gmail.com" target="_blank">
-                <i className="fab fa-google"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://wa.me/+919688597790" target="_blank">
-                <i className="fab fa-whatsapp"></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/marcus-mathuram-3a9701228/"
-                target="_blank"
-              >
-                <i className="fab fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <i className={link.icon}></i>
+                </a>
+              </motion.li>
+            ))}
+          </motion.ul>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
 
-export default About
+export default About;
