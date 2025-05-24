@@ -11,6 +11,16 @@ import Skills from "./components/Skills/Skills";
 function App() {
   const projects = [
     {
+      title: "Education Application",
+      description:
+        "Built an education platform using the MERN stack with a clean, responsive UI. Added role-based access (Admin, Recruiter, User) with JWT security. Integrated payment gateway and smart email features like alerts and marketing. Used Framer Motion, React-Bootstrap, and more for smooth, dynamic interactions.",
+      toolsUsed: ["React","Node.js", "Express", "MongoDB", "Bootstrap", "JWT", "Framer Motion","Nodemailer"],
+      image: "https://i.postimg.cc/ZY7NFvkM/Screenshot-2025-05-25-010601.png",
+      sourceCode: "https://github.com/MarcusMathuram46/edu-learning-hub",
+      liveDemo: "https://edulearning-hub.netlify.app/",
+      type: "fullstack",
+    },
+    {
       title: "Ecommerce Application",
       description: "Build a Ecommerce application using Redux.",
       toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Redux"],
@@ -22,61 +32,61 @@ function App() {
     },
     {
       title: "Notes Application",
-      description: "Develop a notes application where users can create, edit, and delete notes. Implement user authentication to allow users to securely manage their notes. ",
+      description:
+        "Develop a notes application where users can create, edit, and delete notes. Implement user authentication to allow users to securely manage their notes. ",
       toolsUsed: ["Node.js", "Express", "MongoDB", "React"],
       image: "https://i.postimg.cc/wx0vHTk6/Notes2.png",
-      sourceCode:
-        "https://github.com/MarcusMathuram46/note-app-fe",
+      sourceCode: "https://github.com/MarcusMathuram46/note-app-fe",
       liveDemo: "https://eclectic-alfajores-b579fa.netlify.app/",
       type: "fullstack",
     },
     {
       title: "Resume Builder",
-      description: "Create and customize professional resumes effortlessly with a feature-rich resume builder. Tailor your resume to stand out with various templates and styling options.",
+      description:
+        "Create and customize professional resumes effortlessly with a feature-rich resume builder. Tailor your resume to stand out with various templates and styling options.",
       toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Redux"],
       image: "https://i.postimg.cc/WbFSK1cH/ResumeB.png",
-      sourceCode:
-        "https://github.com/MarcusMathuram46/Resume-Builder-FE",
+      sourceCode: "https://github.com/MarcusMathuram46/Resume-Builder-FE",
       liveDemo: "https://euphonious-moonbeam-7d3b46.netlify.app/",
       type: "fullstack",
     },
     {
       title: "Chat Application",
-      description: "Build a chat applications using Socket.IO for instant messaging.Users can create accounts, join chat rooms, and send messages to other users in real-time with your Fav Emoji",
+      description:
+        "Build a chat applications using Socket.IO for instant messaging.Users can create accounts, join chat rooms, and send messages to other users in real-time with your Fav Emoji",
       toolsUsed: ["Node.js", "Express", "MongoDB", "React", "Socket.IO"],
       image: "https://i.postimg.cc/pLqdTT2H/chat3.png",
-      sourceCode:
-        "https://github.com/MarcusMathuram46/Chat-App-FE-main",
+      sourceCode: "https://github.com/MarcusMathuram46/Chat-App-FE-main",
       liveDemo: "https://chat-app-fs.netlify.app/",
       type: "fullstack",
     },
     {
       title: "ECommerce Landing Page",
-      description: "building a full stack ECommerce landing page using the MERN stack,to create a seamless shopping experience, allowing users to browse products, search by category.",
+      description:
+        "building a full stack ECommerce landing page using the MERN stack,to create a seamless shopping experience, allowing users to browse products, search by category.",
       toolsUsed: ["Node.js", "Express", "MongoDB", "ReactJS"],
       image: "https://i.postimg.cc/QMyYQf2s/Eccom-landing-page.png",
-      sourceCode:
-        "https://github.com/MarcusMathuram46/eccom-frontend",
+      sourceCode: "https://github.com/MarcusMathuram46/eccom-frontend",
       liveDemo: "https://eccomlandingpage.netlify.app/",
       type: "fullstack",
     },
     {
       title: "Scale",
-      description: "Scale AI empowers businesses and governments to unlock the potential of generative AI by leveraging high-quality data. Its Scale Data Engine and GenAI Platform enable enterprises to fine-tune foundation models like OpenAI and Meta for tailored applications. The SEAL Initiative drives cutting-edge AI research with a focus on safety and evaluation.",
-      toolsUsed: ["framer-motion","ReactJS"],
+      description:
+        "Scale AI empowers businesses and governments to unlock the potential of generative AI by leveraging high-quality data. Its Scale Data Engine and GenAI Platform enable enterprises to fine-tune foundation models like OpenAI and Meta for tailored applications. The SEAL Initiative drives cutting-edge AI research with a focus on safety and evaluation.",
+      toolsUsed: ["framer-motion", "ReactJS"],
       image: "https://i.postimg.cc/yYfvFfPN/scale.png",
-      sourceCode:
-        "https://github.com/MarcusMathuram46/scale",
+      sourceCode: "https://github.com/MarcusMathuram46/scale",
       liveDemo: "https://scale-marcus.netlify.app/",
       type: "miniproject",
     },
     {
       title: "Game",
-      description: "This project showcases interactive web components: Element Transfer enables seamless movement of items between lists, Box Split divides containers dynamically, and Game offers engaging gameplay. Features like Infinite Scroll enhance content loading, while Nested List organizes data hierarchically for better navigation.",
+      description:
+        "This project showcases interactive web components: Element Transfer enables seamless movement of items between lists, Box Split divides containers dynamically, and Game offers engaging gameplay. Features like Infinite Scroll enhance content loading, while Nested List organizes data hierarchically for better navigation.",
       toolsUsed: ["ReactJS"],
       image: "https://i.postimg.cc/vHHL0WqS/game.png",
-      sourceCode:
-        "https://github.com/MarcusMathuram46/game-reactjs",
+      sourceCode: "https://github.com/MarcusMathuram46/game-reactjs",
       liveDemo: "https://game-marcus.netlify.app/",
       type: "miniproject",
     },
@@ -162,7 +172,8 @@ function App() {
         "Build a robust online shopping cart for your business. This full-featured cart, developed with React, Node.js and Bootstrap offers seamless product management, order processing, and user-friendly interactions.",
       toolsUsed: ["React", "Node.js", "Bootstrap"],
       image: "https://i.postimg.cc/7Y02v06C/shopping-cart.png",
-      sourceCode: "https://github.com/MarcusMathuram46/react_shopping_cart_task",
+      sourceCode:
+        "https://github.com/MarcusMathuram46/react_shopping_cart_task",
       liveDemo: "https://gorgeous-sawine-e35591.netlify.app/",
       type: "miniproject",
     },
