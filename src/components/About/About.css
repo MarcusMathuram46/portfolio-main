@@ -253,3 +253,12 @@ a:focus-visible {
 .about-image-area {
   will-change: transform, opacity;
 }
+@media (max-width: var(--mobile-breakpoint)) {
+  .about-content {
+    order: 1;
+  }
+
+  .about-image-area {
+    order: 2;
+  }
+}
