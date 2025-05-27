@@ -1,188 +1,149 @@
+:root {
+  --primary-color: #4f46e5;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --text-hover: #a5b4fc;
+  --shadow-color: rgba(79, 70, 229, 0.3);
+  --mobile-breakpoint: 768px;
+}
+
+/* Section Container */
 .edu-container {
-    text-align: center;
-    margin: 7% auto 10px;
+  padding: 60px 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
 }
 
-.section-title {
-    font-size: 34px;
-    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
-    color: #3d2d4d;
-    background-clip: text;
+/* Section Title */
+#edu-title {
+  font-size: 38px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  background: linear-gradient(120deg, #4f46e5, #8f39ac, #5efc8d);
+  background-size: 200% 200%;
+  animation: eduGradient 4s ease infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
+/* Cards Grid */
 .edu-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 0 10px;
 }
 
+/* Individual Card */
 .edu-card {
-    width: 320px;
-    height: 255px;
-    position: relative;
-    overflow: hidden;
-    background-color: #303030;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 16px var(--shadow-color);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Card Image Section */
 .edu-card__image {
-    position: relative;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
-.edu-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Maintain aspect ratio */
-    transition: transform 0.3s ease;
+.edu-card__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
 }
 
-.edu-card:hover {
-    transform: scale(1.05);
-    /* Enlarge on hover */
-}
-
-.edu-card:hover img {
-    transform: translateY(-10%);
-    /* Move image up on hover */
-}
-
-.edu-card__content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    /* top: 0;
-    right: 0; */
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    box-sizing: border-box;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-}
-
-.edu-card:hover .edu-card__content {
-    opacity: 1;
-}
-
+/* Level Title Overlay */
 .educ-title {
-    text-align: center;
-    margin-top: 5px;
-    color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(18, 18, 18, 0.7);
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px;
+}
+
+/* Card Content Section */
+.edu-card__content {
+  margin-top: 20px;
+  text-align: left;
 }
 
 .edu-card__title {
-    margin: 0;
-    font-size: 25px;
-    color: #fff;
-    font-weight: 700;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-hover);
 }
 
 .edu-card__description {
-    margin: 10px 0 0;
-    font-size: 16px;
-    color: #eee;
-    line-height: 1.4;
-    font-weight: bold;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-#edu-title {
-    background: linear-gradient(90deg, #138af3, #f903d8);
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-    letter-spacing: 2px;
-    font-size: 34px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-/* .edu-container {
-    text-align: center;
-    margin: 7% auto 10px;
+/* Progress Bar Container */
+.edu-progress {
+  position: relative;
+  background: #333;
+  height: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: hidden;
 }
 
-.section-title {
-    font-size: 34px;
-    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
-    color: #3d2d4d;
-    background-clip: text;
+/* Progress Bar Fill */
+.edu-progress-bar {
+  background: var(--primary-color);
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s ease;
 }
 
-.edu-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* Percentage Label */
+.edu-percent {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-hover);
+  text-align: right;
+  font-weight: 500;
 }
 
-.edu-card {
-    width: 320px;
-    height: 255px;
-    position: relative;
-    overflow: hidden;
-    background-color: #303030;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+/* Animation for Gradient Title */
+@keyframes eduGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.edu-card-image {
-    position: relative;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #edu-title {
+    font-size: 28px;
+  }
+
+  .edu-card__title {
+    font-size: 18px;
+  }
+
+  .edu-card__description {
+    font-size: 14px;
+  }
 }
-
-.edu-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.edu-card:hover {
-    transform: scale(1.05);
-}
-
-.edu-card:hover img {
-    transform: translateY(-10%);
-}
-
-.edu-card-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    box-sizing: border-box;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-}
-
-.edu-card:hover  .edu-card-content {
-    opacity: 1;
-}
-
-.educ-title {
-    text-align: center;
-    margin-top: 5px;
-    color: #fff;
-} 
-
-.edu-card-title {
-    margin: 0;
-    font-size: 25px;
-    color: #fff;
-    font-weight: 700;
-}
-
-.edu-card-description {
-    margin: 10px 0 0;
-    font-size: 16px;
-    color:#eee;
-    line-height: 1.4;
-    font-weight: bold;
-} */

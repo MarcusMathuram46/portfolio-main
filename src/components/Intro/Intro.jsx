@@ -5,86 +5,84 @@ import "./Intro.css";
 function Intro() {
   const [titleText, setTitleText] = useState("");
   const [fsdText, setFsdText] = useState("");
+  const fullName = "MARCUS";
+  const fullRole = "FULL STACK DEVELOPER (MERN)";
 
-  const animateTitle = (text, setText) => {
-    setText("");
-    text.split("").forEach((letter, index) => {
+  const animateText = (text, setter) => {
+    setter("");
+    text.split("").forEach((char, i) => {
       setTimeout(() => {
-        setText((prevText) => prevText + letter);
-      }, index * 150);
+        setter(prev => prev + char);
+      }, i * 100);
     });
   };
 
   useEffect(() => {
-    animateTitle("MARCUS", setTitleText);
-    animateTitle("FULL STACK DEVELOPER (MERN)", setFsdText);
+    animateText(fullName, setTitleText);
+    animateText(fullRole, setFsdText);
 
     const intervalId = setInterval(() => {
-      animateTitle("MARCUS", setTitleText);
-      animateTitle("FULL STACK DEVELOPER (MERN)", setFsdText);
-    }, 6000);
+      animateText(fullName, setTitleText);
+      animateText(fullRole, setFsdText);
+    }, 8000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   const handleResumeClick = () => {
-    const resumeUrl =
-      "https://drive.google.com/file/d/1Y5Z1uLkJpj-B13PCoyigxyWs_UEMGuO3/view?usp=sharing";
-    window.open(resumeUrl, "_blank");
+    window.open("https://drive.google.com/file/d/1Se54VnngeaCiCHKompExIXE2Dc4HAqbq/view", "_blank");
   };
 
   return (
     <motion.section
       id="intro"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="intro-section"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
-      <div id="left-content">
+      <div className="intro-background-glow"></div>
+
+      <div className="intro-content-container">
         <motion.h1
-          id="title"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="intro-greeting"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
           Hello, I'm{" "}
-          <motion.span
-            key={titleText}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
+          <motion.span key={titleText} className="intro-highlighted">
             {titleText}
+            <span className="intro-cursor">|</span>
           </motion.span>
         </motion.h1>
-        <br />
-        <motion.h1
-          id="fsd"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+
+        <motion.h2
+          className="intro-role"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
         >
           {fsdText}
-        </motion.h1>
+        </motion.h2>
+
         <motion.p
-          id="para"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          className="intro-text"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
         >
-          I'm very much interested in creating websites and apps using the
-          technology stack called MERN (MongoDB, Express.js, React, Node.js).
+          Passionate about building full-stack applications using MongoDB, Express.js, React, and Node.js.
         </motion.p>
-        <div style={{ display: "flex" }}>
-          <motion.button
-            className="resume glow-on-hover"
-            onClick={handleResumeClick}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View / Download Resume
-          </motion.button>
-        </div>
+
+        <motion.button
+          className="intro-resume-button"
+          onClick={handleResumeClick}
+          whileHover={{ scale: 1.1, backgroundColor: "#fff", color: "#111" }}
+          whileTap={{ scale: 0.95 }}
+        >
+          View / Download Resume
+        </motion.button>
       </div>
     </motion.section>
   );

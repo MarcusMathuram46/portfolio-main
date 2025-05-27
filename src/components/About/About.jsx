@@ -1,81 +1,123 @@
-import React from "react";
-import { motion } from "framer-motion";
-import "./About.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa'; // React Icons import
+import './About.css';
 
 function About() {
+  const socialLinks = [
+    {
+      href: 'https://github.com/MarcusMathuram46/',
+      icon: <FaGithub />,
+      label: 'GitHub',
+    },
+    {
+      href: 'mailto:marcus.mathuram7@gmail.com',
+      icon: <FaEnvelope />,
+      label: 'Email',
+    },
+    {
+      href: 'https://wa.me/+919688597790',
+      icon: <FaWhatsapp />,
+      label: 'WhatsApp',
+    },
+    {
+      href: 'https://www.linkedin.com/in/marcus-mathuram46/',
+      icon: <FaLinkedin />,
+      label: 'LinkedIn',
+    },
+  ];
+
   return (
     <section id="about" className="about-section">
       {/* Content Section */}
       <motion.div
-        className="content"
-        initial={{ opacity: 0, x: -50 }}
+        className="about-content"
+        initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <p className="lightning-text">
-          Welcome to my portfolio! I'm <span>Marcus</span>, a passionate and
-          dedicated <span>FULL STACK DEVELOPER</span>. With a background in{" "}
-          <span>ELECTRONICS AND INSTRUMENTATION ENGINEERING</span>, I thrive on
-          turning ideas into reality through creativity and innovation.
+        <h2 className="about-section-title">About Me</h2>
+
+        <p className="about-lightning-text">
+          Welcome to my portfolio — I'm <span>Marcus</span>, a driven and
+          versatile <span>Full Stack Developer</span> with a foundation in{' '}
+          <span>Electronics and Instrumentation Engineering</span>. I specialize
+          in transforming complex ideas into elegant, functional, and
+          user-friendly digital solutions.
         </p>
-        <p>
-          I believe in going above and beyond to exceed expectations. I'm driven
-          by a commitment to delivering work that not only meets but exceeds
-          standards.
+
+        <p className="about-paragraph">
+          My mission is to build technology that not only performs but
+          impresses. I bring a blend of engineering logic and design thinking to
+          every project, delivering solutions that are fast, responsive, and
+          future-ready.
         </p>
-        <p>
-          I value collaboration and believe in the power of teamwork. Effective
-          communication and cooperation are key to successful projects.
+
+        <p className="about-paragraph">
+          I value clean code, scalable architecture, and seamless user
+          experiences. Whether it's frontend magic or backend logic, I thrive on
+          solving real-world problems through code.
         </p>
-        <p>
-          In the fast-paced world of <span>FULL STACK DEVELOPER</span>, I
-          understand the importance of staying updated with the latest trends
-          and technologies. I am dedicated to continuous learning and
-          improvement.
+
+        <p className="about-paragraph">
+          I believe great software is built through collaboration. I take pride
+          in being a strong communicator and a reliable team player who always
+          puts the project's success first.
+        </p>
+
+        <p className="about-paragraph">
+          In the ever-evolving world of <span>Full Stack Development</span>, I’m
+          committed to continuous learning and staying ahead of the curve. Every
+          line of code is an opportunity to grow and innovate.
         </p>
       </motion.div>
 
       {/* Image & Social Links */}
       <motion.div
-        className="image-area"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
+        className="about-image-area"
+        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 1, delay: 0.5, type: 'spring', stiffness: 70 }}
       >
-        <div className="img-wrapper">
+        <div className="about-img-wrapper">
           <img
             src="https://i.postimg.cc/vBcXRtfK/Marcus-King.jpg"
             alt="marcus"
+            loading="lazy"
+            className="about-img"
           />
-          <h2>Marcus</h2>
+          <h2 className="about-name">Marcus</h2>
 
           {/* Social Icons */}
-          <motion.ul>
-            {[
-              {
-                href: "https://github.com/MarcusMathuram46?tab=repositories",
-                icon: "fab fa-github",
+          <motion.ul
+            className="about-social-links"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: { staggerChildren: 0.15, delayChildren: 1 },
               },
-              {
-                href: "mailto:marcus.mathuram7@gmail.com",
-                icon: "fab fa-google",
-              },
-              {
-                href: "https://wa.me/+919688597790",
-                icon: "fab fa-whatsapp",
-              },
-              {
-                href: "https://www.linkedin.com/in/marcus-mathuram-3a9701228/",
-                icon: "fab fa-linkedin",
-              },
-            ].map((link, index) => (
+            }}
+          >
+            {socialLinks.map((link, index) => (
               <motion.li
                 key={index}
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                className="about-social-item"
+                whileHover={{ scale: 1.3, color: '#6366F1' }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
               >
-                <a href={link.href} target="_blank" rel="noopener noreferrer">
-                  <i className={link.icon}></i>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className="about-social-link"
+                >
+                  {link.icon}
                 </a>
               </motion.li>
             ))}

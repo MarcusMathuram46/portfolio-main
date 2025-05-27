@@ -1,190 +1,182 @@
-#cert-cont p{
-    display: block;
-    color: black;
-    font-weight: bolder;
-    font-size: larger;
-    text-align: center;
-    line-height: 30px;
+/* Root Variables */
+:root {
+  --primary-color: #4f46e5;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --text-hover: #a5b4fc;
+  --shadow-color: rgba(79, 70, 229, 0.3);
+  --mobile-breakpoint: 768px;
 }
 
-.cardCertificate {
-    max-width: 1200px;
-    margin: 10px auto 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+/* Certification Section */
+#certification {
+  background-color: var(--background-color);
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-color);
+  overflow: hidden;
 }
 
-.cardCertificate {
-    position: relative;
-    margin: 20px 10px;
-    width: 350px;
-    height: 400px;
-    background: whitesmoke;
-    transform-style: preserve-3d;
-    transform: perspective(2000px);
-    box-shadow: inset 10px 0 20px rgba(0, 0, 0, .2), 0 10px 20px rgba(0, 0, 0, .2);
-    transition: 1s;
-    border-radius: 10px;
-    border: 0;
-    outline: none;
+/* Title */
+.certification-title {
+  font-size: 34px;
+  margin-bottom: 20px;
+  background: linear-gradient(120deg, #13344b, #8f39ac, rgb(92, 246, 8));
+  background-size: 200% 200%;
+  animation: gradientMove 3s infinite linear;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.cardCertificate .BoxCertificate {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    position: relative;
-    transform-origin: top;
-    z-index: 1;
-    transition: 1s cubic-bezier(.15, 1.7, .84, .58);
-    overflow: hidden;
+/* Description */
+.certification-description p {
+  margin: 6px 0;
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-.cardCertificate .BoxCertificate img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 0;
-    outline: none;
+/* Slider Container */
+.certification-slider-container {
+  position: relative;
+  margin: 40px auto 0;
+  max-width: 1200px;
+  overflow: hidden;
 }
 
-.cardCertificate:hover .BoxCertificate {
-    transform: rotateX(0deg);
+/* Slider Inner */
+.certification-slider {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
 }
 
-.cardCertificate .detailsCertificate {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
+/* Individual Card */
+.certification-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  min-width: 300px;
 }
 
-.custom-btn {
-    width: 130px;
-    height: 40px;
-    color: #fff;
-    border-radius: 5px;
-    padding: 10px 25px;
-    /* font-family: 'Lato', sans-serif; */
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-        7px 7px 20px 0px rgba(0, 0, 0, .1),
-        4px 4px 5px 0px rgba(0, 0, 0, .1);
-    outline: none;
+.certification-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.btn-7 {
-    background: linear-gradient(0deg, rgba(255, 151, 0, 1) 0%, rgba(251, 75, 2, 1) 100%);
-    line-height: 42px;
-    padding: 0;
-    border: none;
+.certification-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.btn-7 span {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
+/* Button */
+.certification-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-.btn-7:before,
-.btn-7:after {
-    position: absolute;
-    content: "";
-    right: 0;
-    bottom: 0;
-    background: rgba(251, 75, 2, 1);
-    box-shadow:
-        -7px -7px 20px 0px rgba(255, 255, 255, .9),
-        -4px -4px 5px 0px rgba(255, 255, 255, .9),
-        7px 7px 20px 0px rgba(0, 0, 0, .2),
-        4px 4px 5px 0px rgba(0, 0, 0, .3);
-    transition: all 0.3s ease;
+.certification-btn:hover {
+  background-color: var(--text-hover);
+  transform: scale(1.05);
 }
 
-.btn-7:before {
-    height: 0%;
-    width: 2px;
+/* Arrows */
+.certification-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 14px;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  z-index: 100;
+  transition: background-color 0.3s ease;
 }
 
-.btn-7:after {
-    width: 0%;
-    height: 2px;
+.certification-arrow:hover {
+  background: var(--primary-color); /* e.g. a bright theme color */
+  box-shadow: 0 6px 18px var(--primary-color);
 }
 
-.btn-7:hover {
-    color: rgba(251, 75, 2, 1);
-    background: transparent;
+.certification-left {
+  left: 15px;
 }
 
-.btn-7:hover:before {
-    height: 100%;
+.certification-right {
+  right: 15px;
 }
 
-.btn-7:hover:after {
-    width: 100%;
+
+.certification-right {
+  right: 10px;
+}
+/* Indicators */
+.certification-indicators {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.btn-7 span:before,
-.btn-7 span:after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    background: rgba(251, 75, 2, 1);
-    box-shadow:
-        -7px -7px 20px 0px rgba(255, 255, 255, .9),
-        -4px -4px 5px 0px rgba(255, 255, 255, .9),
-        7px 7px 20px 0px rgba(0, 0, 0, .2),
-        4px 4px 5px 0px rgba(0, 0, 0, .3);
-    transition: all 0.3s ease;
+.certification-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--text-hover);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.btn-7 span:before {
-    width: 2px;
-    height: 0%;
+.certification-dot.active {
+  background-color: var(--primary-color);
+  opacity: 1;
+  transform: scale(1.4);
 }
 
-.btn-7 span:after {
-    height: 2px;
-    width: 0%;
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.btn-7 span:hover:before {
-    height: 100%;
-}
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  .certification-card {
+    min-width: 90%;
+  }
 
-.btn-7 span:hover:after {
-    width: 100%;
-}
+  .certification-description p {
+    font-size: 14px;
+  }
 
-.sliderButton.left1 {
-    left: 10px;
-}
+  .certification-title {
+    font-size: 28px;
+  }
 
-.sliderButton.right1 {
-    right: 10px;
-}
-#cert-title {
-    background: linear-gradient(90deg, #138af3, #f903d8);
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-    letter-spacing: 2px;
-    font-size: 34px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  .certification-arrow {
+    padding: 8px;
+    font-size: 16px;
+  }
 }

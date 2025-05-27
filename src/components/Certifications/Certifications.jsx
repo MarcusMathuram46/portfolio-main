@@ -1,139 +1,142 @@
-import React, { useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { motion } from "framer-motion";
-import "./Certifications.css";
+import React, { useEffect, useRef, useState } from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import './Certifications.css';
 
 function Certification() {
   const certificates = [
-    "https://i.postimg.cc/q74pkjzc/Guvi-Certification-HTML.png",
-    "https://i.postimg.cc/9XnXGdnV/Guvi-Certification-CSS.png",
-    "https://i.postimg.cc/C53V943q/Guvi-Certification-BOOTSTRAP.png",
-    "https://i.postimg.cc/Dy4v5S9G/Guvi-Certification-JAVASCRIPT.png",
-    "https://i.postimg.cc/V6HwWw44/Guvi-Certification-REACTJS.png",
-    "https://i.postimg.cc/Nj1gqWff/Guvi-Certification-MYSQL.png",
-    "https://i.postimg.cc/YSRMjYW5/Guvi-Certification-MONGODB.png",
-    "https://i.postimg.cc/pTdxjrQp/Guvi-Certification-NODEJS.png",
-    "https://i.postimg.cc/FHt969vB/Guvi-Certification-MERN-FULL-STACK.png",
+    'https://i.postimg.cc/q74pkjzc/Guvi-Certification-HTML.png',
+    'https://i.postimg.cc/9XnXGdnV/Guvi-Certification-CSS.png',
+    'https://i.postimg.cc/C53V943q/Guvi-Certification-BOOTSTRAP.png',
+    'https://i.postimg.cc/Dy4v5S9G/Guvi-Certification-JAVASCRIPT.png',
+    'https://i.postimg.cc/V6HwWw44/Guvi-Certification-REACTJS.png',
+    'https://i.postimg.cc/Nj1gqWff/Guvi-Certification-MYSQL.png',
+    'https://i.postimg.cc/YSRMjYW5/Guvi-Certification-MONGODB.png',
+    'https://i.postimg.cc/pTdxjrQp/Guvi-Certification-NODEJS.png',
+    'https://i.postimg.cc/FHt969vB/Guvi-Certification-MERN-FULL-STACK.png',
   ];
 
   const [startIndex, setStartIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
+  const totalCards = certificates.length;
   const containerRef = useRef(null);
 
-  const totalCards = certificates.length;
-  const screenWidth = window.innerWidth;
-  const cardsToShow = screenWidth < 755 ? 1 : screenWidth < 1140 ? 2 : 3;
-  const numIndicators = Math.ceil(totalCards / cardsToShow);
-
-  const nextSlide = () => setStartIndex((prevIndex) => (prevIndex + 1) % totalCards);
-  const prevSlide = () => setStartIndex((prevIndex) => (prevIndex - 1 + totalCards) % totalCards);
+  function getCardsToShow() {
+    const width = window.innerWidth;
+    return width < 755 ? 1 : width < 1140 ? 2 : 3;
+  }
 
   useEffect(() => {
-    const autoSlide = setInterval(() => {
-      if (!isPaused) nextSlide();
+    const handleResize = () => setCardsToShow(getCardsToShow());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isPaused) {
+        setStartIndex((prev) => (prev + 1) % totalCards);
+      }
     }, 3000);
-    
-    return () => clearInterval(autoSlide);
-  }, [startIndex, isPaused]);
+    return () => clearInterval(interval);
+  }, [isPaused, totalCards]);
+
+  const nextSlide = () => {
+    setStartIndex((prev) => (prev + 1) % totalCards);
+  };
+
+  const prevSlide = () => {
+    setStartIndex((prev) => (prev - 1 + totalCards) % totalCards);
+  };
 
   return (
     <section id="certification">
-      {/* Title & Description */}
+      {/* Title */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        className="certification-header"
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 id="cert-title">Certification</h1>
-        <div id="cert-cont">
-          <p>
-            Proficient in MongoDB, Express.js, React.js, and Node.js (MERN)
-            stack showcased through hands-on projects.
-          </p>
-          <p>
-            Applied MERN stack knowledge to develop dynamic and responsive web applications.
-          </p>
-          <p>
-            Demonstrated effective problem-solving skills in addressing development challenges.
-          </p>
-          <p>
-            Equipped with industry-relevant skills, poised to contribute to dynamic development teams.
-          </p>
+        <h1 className="certification-title">Certification</h1>
+        <div className="certification-description">
+          <p>Expertise in the MERN stack: MongoDB, Express.js, React.js, and Node.js.</p>
+          <p>Proven ability to design and deliver scalable, responsive web apps.</p>
+          <p>Strong problem-solving skills applied to real-world challenges.</p>
+          <p>Committed to innovation and effective team collaboration.</p>
         </div>
       </motion.div>
 
       {/* Slider */}
       <div
-        className="sliderContainer"
+        className="certification-slider-container"
         ref={containerRef}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         <motion.div
-          className="containerProject"
+          className="certification-slider"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {Array.from({ length: cardsToShow }).map((_, index) => (
-            <motion.div
-              key={index}
-              className="cardCertificate"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="BoxCertificate">
-                <img
-                  src={certificates[(startIndex + index) % totalCards]}
-                  alt={`Certificate ${startIndex + index + 1}`}
-                />
-                <div className="detailsCertificate">
+          {Array.from({ length: cardsToShow }).map((_, i) => {
+            const currentIndex = (startIndex + i) % totalCards;
+            return (
+              <motion.div
+                key={i}
+                className="certification-card"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="certification-card-inner">
+                  <img
+                    src={certificates[currentIndex]}
+                    alt={`Certificate ${currentIndex + 1}`}
+                  />
                   <motion.button
-                    className="custom-btn btn-7"
+                    className="certification-btn"
                     whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    onClick={() => window.open(certificates[(startIndex + index) % totalCards], "_blank")}
+                    onClick={() => window.open(certificates[currentIndex], '_blank')}
                   >
                     <span>View Certificate</span>
                   </motion.button>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
-        {/* Navigation Buttons */}
+        {/* Arrows */}
         {totalCards > 1 && (
           <>
             <motion.button
-              className="sliderButton left1"
+              className="certification-arrow certification-left"
               onClick={prevSlide}
               whileHover={{ scale: 1.2 }}
-              transition={{ type: "spring", stiffness: 300 }}
             >
               <FaArrowLeft />
             </motion.button>
             <motion.button
-              className="sliderButton right1"
+              className="certification-arrow certification-right"
               onClick={nextSlide}
               whileHover={{ scale: 1.2 }}
-              transition={{ type: "spring", stiffness: 300 }}
             >
               <FaArrowRight />
             </motion.button>
           </>
         )}
 
-        {/* Indicators */}
-        <div className="indicators">
-          {Array.from({ length: numIndicators }).map((_, index) => (
+        {/* Indicators - One dot per certificate */}
+        <div className="certification-indicators">
+          {certificates.map((_, index) => (
             <motion.span
               key={index}
-              className={`indicator ${index === Math.floor(startIndex / cardsToShow) ? "active" : ""}`}
-              onClick={() => setStartIndex(index * cardsToShow)}
-              whileHover={{ scale: 1.2 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              className={`certification-dot ${index === startIndex ? 'active' : ''}`}
+              onClick={() => setStartIndex(index)}
+              whileHover={{ scale: 1.3 }}
             />
           ))}
         </div>

@@ -32,14 +32,29 @@ const education = [
   },
 ];
 
+// Variants
+const containerVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.3, delayChildren: 0.3 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 function Education() {
   return (
     <motion.section
       id="education"
       className="edu-container"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <motion.h2
         id="edu-title"
@@ -50,27 +65,66 @@ function Education() {
         STUDIES
       </motion.h2>
 
-      <div className="edu-card-container">
+      <motion.div className="edu-card-container">
         {education.map((data, i) => (
           <motion.div
             className="edu-card"
             key={i}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.2, duration: 0.6, ease: "easeOut" }}
-            whileHover={{ scale: 1.05 }}
+            variants={cardVariants}
+            whileHover={{ scale: 1.05, rotate: 1 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 150 }}
           >
-            <div className="edu-card__image">
-              <img src={data.img} alt={data.title} />
-              <motion.h1 className="educ-title">{data.level}</motion.h1>
-            </div>
-            <div className="edu-card__content">
-              <p className="edu-card__title">{data.title}</p>
-              <p className="edu-card__description">{data.description}</p>
-            </div>
+            <motion.div className="edu-card__image">
+              <motion.img
+                src={data.img}
+                alt={data.title}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.h1
+                className="educ-title"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                {data.level}
+              </motion.h1>
+            </motion.div>
+
+            <motion.div className="edu-card__content">
+              <motion.p
+                className="edu-card__title"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                {data.title}
+              </motion.p>
+              <motion.p
+                className="edu-card__description"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                {data.description}
+              </motion.p>
+
+              {/* Animated Progress Bar */}
+              <motion.div className="edu-progress">
+                <motion.div
+                  className="edu-progress-bar"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${data.percentage}%` }}
+                  transition={{ duration: 1 }}
+                />
+                <motion.span className="edu-percent">{data.percentage}%</motion.span>
+              </motion.div>
+            </motion.div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

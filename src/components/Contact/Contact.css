@@ -1,107 +1,95 @@
-.card {
-    display: flex;
-    height: 80px;
-    width: 400px;
-    margin: 3% auto;
+/* Root Variables */
+:root {
+  --primary-color: #4f46e5;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --text-hover: #a5b4fc;
+  --shadow-color: rgba(79, 70, 229, 0.3);
+  --mobile-breakpoint: 768px;
 }
 
-.card svg {
-    position: absolute;
-    display: flex;
-    width: 60%;
-    height:  100%;
-    font-size: 24px;
-    font-weight: 700;
-    opacity: 1;
-    transition: opacity 0.25s;
-    z-index: 2;
-    padding: 0.25rem;
-    cursor: pointer;
+/* Section Styling */
+#contact {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+  text-align: center;
+  color: var(--text-color);
+  overflow: hidden;
 }
 
-.card .social-link1,
-.card .social-link2,
-.card .social-link3,
-.card .social-link4,
-.card .social-link5 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    background-color: #333;
-    font-size: 24px;
-    text-decoration: none;
-    transition: 0.25s;
-    border-radius: 50px;
-    margin-left: 1%;
-}
-
-.card svg {
-    transform: scale(1);
-}
-
-.card .social-link1:hover {
-    background: #f09433;
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
-  animation: bounce_613 0.4s linear;
-}
-
-.card .social-link2:hover {
-    background-color: #242c34;
-    animation: bounce_613 0.4s linear;
-}
-
-.card .social-link3:hover {
-    background-color: #2a2ae3;
-    animation: bounce_613 0.4s linear;
-}
-
-.card.social-link4:hover {
-    background-color: #0a66c2;
-    animation: bounce_613 0.4s linear;
-}
-
-.card.social-link5:hover {
-    background-color: #5de15d;
-    animation: bounce_613 0.4s linear;
-}
-
-@keyframes bounce_613 {
-    40% {
-        transform: scale(1.4);
-    }
-
-    60% {
-        transform: scale(0.8);
-    }
-
-    80% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@media (max-width:480px) {
-    .card {
-        display: flex;
-        height: 50px;
-        width: 250px;
-    }
-}
-
+/* Title Styling */
 #contact-title {
-    background: linear-gradient(90deg, #138af3, #f903d8);
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-    letter-spacing: 2px;
-    font-size: 34px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 36px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  background: linear-gradient(120deg, #13344b, #8f39ac, rgb(92, 246, 8));
+  background-size: 200% 200%;
+  animation: gradientMove 3s infinite linear;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Card Container */
+.card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  max-width: 800px;
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
+}
+
+/* Social Link Buttons */
+.card a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.card a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-hover);
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #contact-title {
+    font-size: 28px;
+  }
+
+  .card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 10px;
+  }
+
+  .card a {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
 }

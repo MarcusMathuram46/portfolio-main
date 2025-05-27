@@ -1,175 +1,163 @@
-nav {
-    background-color: #252525;
-    padding: 10px;
+/* Navbar.css */
+
+/* Root & base styles */
+:root {
+  --primary-color: #4f46e5; /* Indigo */
+  --background-color: #121212; /* Dark background */
+  --text-color: #e0e0e0; /* Light text */
+  --text-hover: #a5b4fc; /* Lighter Indigo */
+  --shadow-color: rgba(79, 70, 229, 0.3);
+  --mobile-breakpoint: 768px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    text-align: center;
-    padding: 10px;
+* {
+  box-sizing: border-box;
 }
 
-nav a:hover{
-    background-color: rgb(90, 100, 96);
-    border-radius: 10px;
+body {
+  margin: 0;
+  /* font-family: 'Poppins', sans-serif; */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+/* Navbar container */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--background-color);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  backdrop-filter: saturate(180%) blur(10px);
 }
 
-li {
-    display: inline-block;
-    margin-right: 20px;
-    margin-top: 15px;
-    color:rgb(8, 175, 246);
-    font-size: 20px;
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary-color);
+  user-select: none;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
 }
 
-#portfolio {
-    text-align: center;
-    font-size: 30px;
-    padding-left: 10px;
-    text-shadow:
-        0px 0px 10px rgb(8, 175, 246),
-        0px 0px 20px rgb(8, 175, 246),
-        0px 0px 50px rgb(8, 175, 246);
-    color: rgb(204, 217, 233);
-    /* background: linear-gradient(99deg,whitesmoke,#333);
-    letter-spacing: 5px;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-repeat: no-repeat;
-    background-size: 80%;
-    animation: shine 3s linear infinite;
-    position: relative; */
+.logo:hover {
+  color: var(--text-hover);
+  text-shadow: 0 0 8px var(--primary-color);
 }
 
-@keyframes shine{
-    0%{
-        background-position-x: -500%;
-    }
-    100%{
-        background-position-x: 500%;
-    }
+/* Desktop nav links */
+.nav-links.desktop {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
 }
-#checkbox {
+
+.nav-links.desktop li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline effect on hover */
+.nav-links.desktop li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-links.desktop li a:hover,
+.nav-links.desktop li a:focus {
+  color: var(--primary-color);
+}
+
+.nav-links.desktop li a:hover::after,
+.nav-links.desktop li a:focus::after {
+  width: 100%;
+}
+
+/* Hamburger container */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1001; /* Above mobile menu */
+}
+
+/* Hamburger bars */
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  transform-origin: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Mobile nav */
+.nav-links.mobile {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  background: var(--background-color);
+  width: 220px;
+  padding: 1rem 2rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: -2px 4px 12px var(--shadow-color);
+  border-left: 2px solid var(--primary-color);
+  border-radius: 4px 0 0 4px;
+  user-select: none;
+}
+
+/* Mobile nav link styles */
+.nav-links.mobile li a {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 0.4rem 0;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links.mobile li a:hover,
+.nav-links.mobile li a:focus {
+  color: var(--primary-color);
+  background-color: rgba(79, 70, 229, 0.1);
+}
+
+/* Responsive breakpoints */
+@media (max-width: var(--mobile-breakpoint)) {
+  /* Hide desktop nav */
+  .nav-links.desktop {
     display: none;
-}
+  }
 
-.toggle {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  /* Show hamburger */
+  .hamburger {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition-duration: .3s;
-}
-
-.bars {
-    width: 100%;
-    height: 4px;
-    background-color: rgb(253, 255, 243);
-    border-radius: 5px;
-    transition-duration: .3s;
-}
-
-#checkbox:checked+.toggle #bar2 {
-    transform: translateY(14px) rotate(60deg);
-    margin-left: 0;
-    transform-origin: right;
-    transition-duration: .3s;
-    z-index: 2;
-}
-
-#checkbox:checked+.toggle #bar1 {
-    transform: translateY(28px) rotate(-60deg);
-    transition-duration: .3s;
-    transform-origin: left;
-    z-index: 1;
-}
-
-#checkbox:checked+.toggle {
-    transform: rotate(-90deg);
-}
-
-@media (min-width: 768px) {
-
-    #checkbox,
-    .toggle,
-    .bars {
-        display: none;
-    }
-
-    
-}
-
-@media (max-width: 768px) {
-    nav{
-        height: 55px;
-    }
-    #portfolio{
-        margin-top: 8px;
-        color: rgb(204, 217, 233);
-    }
-    div ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 68px;
-        right: 8.8px;
-        width: 40%;
-        z-index: 1;
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    div ul.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    div ul li {
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #555;
-    }
-
-    #right {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 20px 30px;
-        cursor: pointer;
-    }
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-track:hover {
-    background: #f0f0f0;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  }
 }

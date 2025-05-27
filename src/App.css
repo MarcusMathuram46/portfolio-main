@@ -1,118 +1,132 @@
 /* Import Poppins Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Root Variables */
 :root {
-    /* 🌈 Primary Theme Colors */
-    --primary-color: #138af3;
-    --secondary-color: #f903d8;
-    --accent-color: #8f39ac;
-    --text-color: #080808;
-    --bg-color: #f5f5f5;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --gradient-color: linear-gradient(120deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+  --primary-color: #4f46e5;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --text-hover: #a5b4fc;
+  --shadow-color: rgba(79, 70, 229, 0.3);
+  --mobile-breakpoint: 768px;
 
-    /* 🎨 Typography */
-    --font-family: 'Poppins', sans-serif;
-    --font-size-base: 16px;
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-bold: 600;
+  --font-family: 'Poppins', sans-serif;
 
-    /* ⚡ Animation & Effects */
-    --transition: all 0.3s ease-in-out;
-    --box-shadow: 0 4px 6px var(--shadow-color);
+  --transition-speed: 0.3s;
 }
 
-/* 🌟 Global Styles */
+/* Global Reset */
 * {
-    font-family: var(--font-family);
-    transition: var(--transition);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 🔥 Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* 🎨 Background & Typography */
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-regular);
-    line-height: 1.6;
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-/* 🏆 Heading Styles */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: var(--font-weight-bold);
-    color: var(--text-color);
+/* Reusable Utilities */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
 }
 
-/* 🎭 Gradient Title */
-.title-gradient {
-    background: var(--gradient-color);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-/* 🔘 Buttons */
-.btn {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: var(--font-weight-bold);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.btn-primary {
-    background: var(--primary-color);
-    color: #fff;
-    box-shadow: var(--box-shadow);
-}
-
-.btn-primary:hover {
-    background: var(--secondary-color);
-    transform: scale(1.05);
-}
-
-/* 🌀 Hover Effects */
 a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
 }
 
 a:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
+  color: var(--text-hover);
 }
 
-/* 💡 Smooth Card Effects */
-.card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+button:hover {
+  background-color: var(--text-hover);
+  transform: translateY(-3px);
 }
 
-/* 📱 Responsive Tweaks */
+button:active {
+  transform: scale(0.97);
+}
+
+/* Section Animation */
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: transform, opacity;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header Animation */
+.header {
+  background-color: var(--background-color);
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header.sticky {
+  backdrop-filter: blur(10px);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+}
 
-    .btn {
-        padding: 10px 16px;
-        font-size: 14px;
-    }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
 }

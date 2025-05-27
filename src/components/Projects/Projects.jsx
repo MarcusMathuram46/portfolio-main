@@ -38,13 +38,13 @@ const Projects = ({ projects }) => {
         Projects
       </motion.h1>
 
-      <div className="sliderContainer" ref={containerRef}>
+      <div className="projects-sliderContainer" ref={containerRef}>
         {/* Category Buttons */}
-        <motion.div className="categories">
+        <motion.div className="projects-categories">
           {["all", "fullstack", "miniproject"].map((type) => (
             <motion.button
               key={type}
-              className={category === type ? "active" : ""}
+              className={`projects-category-btn ${category === type ? "projects-active" : ""}`}
               onClick={() => setCategory(type)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -57,7 +57,7 @@ const Projects = ({ projects }) => {
         {/* Project Cards */}
         <AnimatePresence mode="wait">
           <motion.div
-            className="containerProject"
+            className="projects-containerProject"
             key={startIndex}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -65,16 +65,16 @@ const Projects = ({ projects }) => {
             transition={{ duration: 0.5 }}
           >
             {filteredProjects.length > 0 && (
-              <motion.div className="cardProject">
+              <motion.div className="projects-cardProject">
                 <h2 style={{ textAlign: "center" }}>{filteredProjects[startIndex].title}</h2>
                 <motion.img
                   style={{ width: "250px", height: "150px", marginLeft: "13%" }}
                   src={filteredProjects[startIndex].image}
                   alt={`Project ${startIndex + 1}`}
-                  className="projectImage"
+                  className="projects-projectImage"
                   whileHover={{ scale: 1.05 }}
                 />
-                <motion.div className="detailsProject">
+                <motion.div className="projects-detailsProject">
                   <p>{filteredProjects[startIndex].description}</p>
                   <div>
                     <h3 style={{ marginBottom: "5px" }}>
@@ -82,12 +82,12 @@ const Projects = ({ projects }) => {
                     </h3>
                     {filteredProjects[startIndex].toolsUsed.join(", ")}
                   </div>
-                  <div className="buttons">
+                  <div className="projects-buttons">
                     <motion.a
                       href={filteredProjects[startIndex].sourceCode}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn1"
+                      className="projects-btn1"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
@@ -97,7 +97,7 @@ const Projects = ({ projects }) => {
                       href={filteredProjects[startIndex].liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn1"
+                      className="projects-btn1"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
@@ -113,21 +113,21 @@ const Projects = ({ projects }) => {
         {/* Navigation Buttons */}
         {totalCards > 1 && (
           <>
-            <motion.button className="sliderButton left" onClick={prevSlide} whileHover={{ scale: 1.1 }}>
+            <motion.button className="projects-sliderButton projects-left" onClick={prevSlide} whileHover={{ scale: 1.1 }}>
               <FaArrowLeft />
             </motion.button>
-            <motion.button className="sliderButton right" onClick={nextSlide} whileHover={{ scale: 1.1 }}>
+            <motion.button className="projects-sliderButton projects-right" onClick={nextSlide} whileHover={{ scale: 1.1 }}>
               <FaArrowRight />
             </motion.button>
           </>
         )}
 
         {/* Indicators */}
-        <motion.div className="indicators">
+        <motion.div className="projects-indicators">
           {Array.from({ length: totalCards }).map((_, index) => (
             <motion.span
               key={index}
-              className={`indicator ${startIndex === index ? "active" : ""}`}
+              className={`projects-indicator ${startIndex === index ? "projects-active" : ""}`}
               onClick={() => handleIndicatorClick(index)}
               whileHover={{ scale: 1.3 }}
             />

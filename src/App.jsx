@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
 import Intro from "./components/Intro/Intro";
@@ -7,8 +7,20 @@ import Contact from "./components/Contact/Contact";
 import Education from "./components/Education/Education";
 import Projects from "./components/Projects/Projects";
 import Skills from "./components/Skills/Skills";
+import Loader from "./components/Loader/Loader";
 
 function App() {
+   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const projects = [
     {
       title: "Education Application",
@@ -200,7 +212,7 @@ function App() {
       type: "miniproject",
     },
   ];
-
+  if (loading) return <Loader />;
   return (
     <div>
       <Navbar />

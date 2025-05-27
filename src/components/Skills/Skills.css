@@ -1,82 +1,100 @@
-#skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+/* Root variables */
+:root {
+  --primary-color: #4f46e5;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --text-hover: #a5b4fc;
+  --shadow-color: rgba(79, 70, 229, 0.3);
+  --mobile-breakpoint: 768px;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Skills Section */
+#skills { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .skill {
-    box-sizing: border-box;
-    padding: 15px;
-    text-align: center;
-    margin: 10px;
-    width: calc(50% - 20px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  margin: 10px;
+  width: calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
 .skill:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 /* Gradient Text Animation */
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Section Titles */
 .section-titles {
-    font-size: 34px;
-    margin: 20px 50% 10px;
-    background: linear-gradient(120deg, #13344b, #8f39ac, rgb(92, 246, 8));
-    background-size: 200% 200%;
-    animation: gradientMove 3s infinite linear;
-    background-clip: text;
-    color: transparent;
-    text-align: center;
+  font-size: 34px;
+  margin: 20px 50% 10px;
+  background: linear-gradient(120deg, var(--primary-color), var(--text-hover), limegreen);
+  background-size: 200% 200%;
+  animation: gradientMove 3s infinite linear;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
 }
 
-/* Title Styling */
+/* Skill Title */
 .skilltitle {
-    margin: 10px 0 0;
-    font-size: 17px;
-    color: #080101;
-    font-weight: bold;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+  margin: 10px 0 0;
+  font-size: 17px;
+  color: var(--text-color);
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Hover Effect */
 .skilltitle:hover {
-    color: #138af3;
-    text-shadow: 2px 2px 4px rgba(19, 138, 243, 0.5);
+  color: var(--text-hover);
+  text-shadow: 2px 2px 4px var(--shadow-color);
 }
 
-/* Animated Gradient for Contact Title */
+/* Contact Title Gradient Animation */
 #conttitle {
-    background: linear-gradient(90deg, #138af3, #f903d8);
-    background-size: 200% 200%;
-    animation: gradientMove 3s infinite linear;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-    letter-spacing: 2px;
-    font-size: 34px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+  background: linear-gradient(90deg, #138af3, #f903d8);
+  background-size: 200% 200%;
+  animation: gradientMove 3s infinite linear;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+  letter-spacing: 2px;
+  font-size: 34px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
 }
 
 /* Responsive Design */
 @media only screen and (min-width: 768px) {
-    .skill {
-        width: calc(25% - 20px);
-    }
+  .skill {
+    width: calc(25% - 20px);
+  }
 }
