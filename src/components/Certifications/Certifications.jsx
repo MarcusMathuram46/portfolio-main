@@ -49,6 +49,9 @@ function Certification() {
   const prevSlide = () => {
     setStartIndex((prev) => (prev - 1 + totalCards) % totalCards);
   };
+  useEffect(() => {
+    window.scrollTo({ top: 100, behavior: 'smooth' });
+  }, []);
 
   return (
     <section id="certification">
@@ -61,8 +64,13 @@ function Certification() {
       >
         <h1 className="certification-title">Certification</h1>
         <div className="certification-description">
-          <p>Expertise in the MERN stack: MongoDB, Express.js, React.js, and Node.js.</p>
-          <p>Proven ability to design and deliver scalable, responsive web apps.</p>
+          <p>
+            Expertise in the MERN stack: MongoDB, Express.js, React.js, and
+            Node.js.
+          </p>
+          <p>
+            Proven ability to design and deliver scalable, responsive web apps.
+          </p>
           <p>Strong problem-solving skills applied to real-world challenges.</p>
           <p>Committed to innovation and effective team collaboration.</p>
         </div>
@@ -99,7 +107,9 @@ function Certification() {
                   <motion.button
                     className="certification-btn"
                     whileHover={{ scale: 1.1 }}
-                    onClick={() => window.open(certificates[currentIndex], '_blank')}
+                    onClick={() =>
+                      window.open(certificates[currentIndex], '_blank')
+                    }
                   >
                     <span>View Certificate</span>
                   </motion.button>
@@ -134,7 +144,9 @@ function Certification() {
           {certificates.map((_, index) => (
             <motion.span
               key={index}
-              className={`certification-dot ${index === startIndex ? 'active' : ''}`}
+              className={`certification-dot ${
+                index === startIndex ? 'active' : ''
+              }`}
               onClick={() => setStartIndex(index)}
               whileHover={{ scale: 1.3 }}
             />

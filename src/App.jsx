@@ -10,16 +10,16 @@ import Skills from "./components/Skills/Skills";
 import Loader from "./components/Loader/Loader";
 
 function App() {
-   const [loading, setLoading] = useState(true);
+  //  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulate loading delay
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // 2 seconds
+  // useEffect(() => {
+  //   // Simulate loading delay
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000); // 2 seconds
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const projects = [
     {
@@ -212,7 +212,7 @@ function App() {
       type: "miniproject",
     },
   ];
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
   return (
     <div>
       <Navbar />

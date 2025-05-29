@@ -14,6 +14,21 @@
 
   --transition-speed: 0.3s;
 }
+html {
+  scroll-padding-top: 65px;
+}
+#skills{
+  scroll-margin-top: 65px;
+} 
+#projects {
+  scroll-margin-top: 100px;
+} 
+#education{
+  scroll-margin-top: 100px;
+}
+/* #skills, #about, #projects, #certification, #education, #contact {
+  scroll-margin-top: 65px;
+} */
 
 /* Global Reset */
 * {
