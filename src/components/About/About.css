@@ -177,63 +177,6 @@
   filter: drop-shadow(0 0 8px var(--primary-color));
 }
 
-/* Responsive Styles */
-@media (max-width: var(--mobile-breakpoint)) {
-  html, body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-  }
-
-  .about-section {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1.5rem;
-    min-height: 100vh; /* use full vertical screen */
-    gap: 2.5rem;
-    text-align: center;
-  }
-
-  .about-content {
-    max-width: 100%;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .about-section-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .about-image-area {
-    max-width: 100%;
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .about-img-wrapper {
-    width: 100%;
-  }
-
-  .about-img-wrapper img {
-    width: 100%;
-    height: auto;
-  }
-
-  .about-name {
-    font-size: 1.8rem;
-    margin-top: 1rem;
-  }
-
-  .about-social-links {
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-}
-
 
 /* Smooth transitions for all elements */
 *,
@@ -253,12 +196,76 @@ a:focus-visible {
 .about-image-area {
   will-change: transform, opacity;
 }
-@media (max-width: var(--mobile-breakpoint)) {
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  .about-content,
+  .about-image-area {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .about-content {
     order: 1;
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .about-section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-paragraph {
+    margin-bottom: 1.25rem;
   }
 
   .about-image-area {
     order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .about-img-wrapper {
+    width: 200px;
+    height: 200px;
+    /* border-radius: 50%; */
+    overflow: hidden;
+  }
+
+  .about-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-name {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+
+  .about-social-links {
+    margin-top: 1rem;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .about-social-item a {
+    font-size: 1.5rem;
   }
 }
+

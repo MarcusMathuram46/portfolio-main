@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa'; // React Icons import
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import './About.css';
 
 function About() {
@@ -86,43 +86,43 @@ function About() {
             loading="lazy"
             className="about-img"
           />
-          <h2 className="about-name">Marcus</h2>
-
-          {/* Social Icons */}
-          <motion.ul
-            className="about-social-links"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: {
-                transition: { staggerChildren: 0.15, delayChildren: 1 },
-              },
-            }}
-          >
-            {socialLinks.map((link, index) => (
-              <motion.li
-                key={index}
-                className="about-social-item"
-                whileHover={{ scale: 1.3, color: '#6366F1' }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-              >
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="about-social-link"
-                >
-                  {link.icon}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul>
         </div>
+        <h2 className="about-name">Marcus</h2>
+
+        {/* Social Icons */}
+        <motion.ul
+          className="about-social-links"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.15, delayChildren: 1 },
+            },
+          }}
+        >
+          {socialLinks.map((link, index) => (
+            <motion.li
+              key={index}
+              className="about-social-item"
+              whileHover={{ scale: 1.3, color: '#6366F1' }}
+              transition={{ type: 'spring', stiffness: 300 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="about-social-link"
+              >
+                {link.icon}
+              </a>
+            </motion.li>
+          ))}
+        </motion.ul>
       </motion.div>
     </section>
   );
