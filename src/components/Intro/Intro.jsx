@@ -31,8 +31,11 @@ function Intro() {
 
   const handleResumeClick = () => {
     // window.open("https://drive.google.com/file/d/1Se54VnngeaCiCHKompExIXE2Dc4HAqbq/view", "_blank");
+    // latest resume link
+    window.open("https://drive.google.com/file/d/12Z0-RGeN7aQx9YukxiOvQBX37ZLfWeIn/view?usp=sharing", "_blank");
     
-    window.open("https://drive.google.com/file/d/1usabJtHeDwKRK4HdgA9GW6arcNK3f3lw/view?usp=sharing", "_blank");
+    // window.open("https://drive.google.com/file/d/1usabJtHeDwKRK4HdgA9GW6arcNK3f3lw/view?usp=sharing", "_blank");
+    
   };
 
   return (
