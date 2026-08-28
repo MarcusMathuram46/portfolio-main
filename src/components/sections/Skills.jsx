@@ -1,11 +1,12 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { 
-  SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiTailwindcss, SiBootstrap, SiFramer, SiMui,
+  SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiHtml5, SiCss, SiTailwindcss, SiBootstrap, SiFramer, SiMui,
   SiNodedotjs, SiExpress, SiJsonwebtokens, SiCplusplus,
   SiMongodb, SiMysql, SiPostgresql, SiDrizzle,
-  SiAmazonwebservices, SiGit, SiGithub, SiPostman, SiVercel, SiNetlify, SiRender, SiSendgrid
+  SiGit, SiGithub, SiPostman, SiVercel, SiNetlify, SiRender
 } from "react-icons/si"
+import { FaAws } from "react-icons/fa"
 import { Cloud, Mail, ServerCog } from "lucide-react"
 
 const skillCategories = [
@@ -17,7 +18,7 @@ const skillCategories = [
       { name: "TypeScript", icon: SiTypescript, color: "hover:border-[#3178C6] hover:shadow-[0_0_15px_rgba(49,120,198,0.5)] hover:text-[#3178C6]" },
       { name: "JavaScript", icon: SiJavascript, color: "hover:border-[#F7DF1E] hover:shadow-[0_0_15px_rgba(247,223,30,0.5)] hover:text-[#F7DF1E]" },
       { name: "HTML", icon: SiHtml5, color: "hover:border-[#E34F26] hover:shadow-[0_0_15px_rgba(227,79,38,0.5)] hover:text-[#E34F26]" },
-      { name: "CSS", icon: SiCss3, color: "hover:border-[#1572B6] hover:shadow-[0_0_15px_rgba(21,114,182,0.5)] hover:text-[#1572B6]" },
+      { name: "CSS", icon: SiCss, color: "hover:border-[#1572B6] hover:shadow-[0_0_15px_rgba(21,114,182,0.5)] hover:text-[#1572B6]" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "hover:border-[#06B6D4] hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:text-[#06B6D4]" },
       { name: "Bootstrap", icon: SiBootstrap, color: "hover:border-[#7952B3] hover:shadow-[0_0_15px_rgba(121,82,179,0.5)] hover:text-[#7952B3]" },
       { name: "Framer Motion", icon: SiFramer, color: "hover:border-[#0055FF] hover:shadow-[0_0_15px_rgba(0,85,255,0.5)] hover:text-[#0055FF]" },
@@ -45,16 +46,16 @@ const skillCategories = [
     ]
   },
   {
-    title: "Tools & Deployment",
+    title: "Tools & Platforms",
     skills: [
-      { name: "AWS", icon: SiAmazonwebservices, color: "hover:border-[#FF9900] hover:shadow-[0_0_15px_rgba(255,153,0,0.5)] hover:text-[#FF9900]" },
+      { name: "AWS", icon: FaAws, color: "hover:border-[#FF9900] hover:shadow-[0_0_15px_rgba(255,153,0,0.5)] hover:text-[#FF9900]" },
       { name: "Git", icon: SiGit, color: "hover:border-[#F05032] hover:shadow-[0_0_15px_rgba(240,80,50,0.5)] hover:text-[#F05032]" },
       { name: "GitHub", icon: SiGithub, color: "hover:border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:text-white" },
       { name: "Postman", icon: SiPostman, color: "hover:border-[#FF6C37] hover:shadow-[0_0_15px_rgba(255,108,55,0.5)] hover:text-[#FF6C37]" },
       { name: "Vercel", icon: SiVercel, color: "hover:border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:text-white" },
       { name: "Netlify", icon: SiNetlify, color: "hover:border-[#00C7B7] hover:shadow-[0_0_15px_rgba(0,199,183,0.5)] hover:text-[#00C7B7]" },
       { name: "Render", icon: SiRender, color: "hover:border-[#46E3B7] hover:shadow-[0_0_15px_rgba(70,227,183,0.5)] hover:text-[#46E3B7]" },
-      { name: "SendGrid", icon: SiSendgrid, color: "hover:border-[#51A9E3] hover:shadow-[0_0_15px_rgba(81,169,227,0.5)] hover:text-[#51A9E3]" },
+      { name: "SendGrid", icon: Mail, color: "hover:border-[#009DD9] hover:shadow-[0_0_15px_rgba(0,157,217,0.5)] hover:text-[#009DD9]" },
       { name: "PostGrid", icon: Mail, color: "hover:border-[#FF4500] hover:shadow-[0_0_15px_rgba(255,69,0,0.5)] hover:text-[#FF4500]" }
     ]
   }
