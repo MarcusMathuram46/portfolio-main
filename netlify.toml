@@ -1,6 +1,3 @@
 [build]
-  command = "npm install --include=optional --no-save && npm run build"
+  command = "rm -f package-lock.json && npm install && npm run build"
   publish = "dist"
-
-[build.environment]
-  NPM_FLAGS = "--include=optional"
