@@ -24,14 +24,14 @@ const projects = [
     title: "Bestingems",
     description: "High-traffic e-commerce ecosystem, complex back-office operations and frontend performance.",
     features: [
-      "Integrated administrative tools with Azure pipelines for deployment and data sync",
+      "Integrated administrative tools with CI/CD pipelines for deployment and data sync",
       "End-to-End Order Management: Full order lifecycle, real-time tracking of orders/refunds/shipments",
       "Advanced Data Processing: Complex filtering/sorting logic for centralized dashboard handling large-scale transactional data",
       "Automated Customer Communication: Nodemailer for order confirmations, shipping updates, refund processing",
       "Inventory Control Systems: Stock tracking, warehouse operations",
       "Frontend Performance Optimization: Reduced latency, improved core web vitals"
     ],
-    tech: ["Next.js", "TypeScript", "Node.js", "Azure", "Nodemailer", "MongoDB"],
+    tech: ["Next.js", "TypeScript", "Node.js", "Nodemailer", "MongoDB"],
     link: "https://bestingems.com/"
   },
   {
