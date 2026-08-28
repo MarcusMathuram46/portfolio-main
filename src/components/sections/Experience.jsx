@@ -44,7 +44,7 @@ const experiences = [
     ]
   },
   {
-    role: "MERN Full Stack Developer",
+    role: "Full Stack Developer",
     company: "Elshaddai IT Education and Development",
     period: "12/2023 – 02/2025",
     type: "Madurai",
