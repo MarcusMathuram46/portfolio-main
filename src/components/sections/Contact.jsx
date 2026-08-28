@@ -1,27 +1,12 @@
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"
+import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
 
 export function Contact() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitStatus("success")
-      e.target.reset()
-      setTimeout(() => setSubmitStatus(null), 3000)
-    }, 1500)
-  }
 
   return (
     <section id="contact" className="py-24">
@@ -83,35 +68,23 @@ export function Contact() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6 glass p-8 rounded-2xl">
+            <form action="https://formspree.io/f/xljeeoew" method="POST" className="space-y-6 glass p-8 rounded-2xl">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">Name</label>
-                <Input id="name" required placeholder="John Doe" />
+                <Input id="name" name="name" required placeholder="John Doe" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">Email</label>
-                <Input id="email" type="email" required placeholder="john@example.com" />
+                <Input id="email" name="email" type="email" required placeholder="john@example.com" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">Message</label>
-                <Textarea id="message" required placeholder="Hello Marcus..." className="min-h-[150px]" />
+                <Textarea id="message" name="message" required placeholder="Hello Marcus..." className="min-h-[150px]" />
               </div>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="mr-2 h-4 w-4" />
-                    Send Message
-                  </>
-                )}
+              <Button type="submit" className="w-full">
+                <Send className="mr-2 h-4 w-4" />
+                Send Message
               </Button>
-              {submitStatus === "success" && (
-                <p className="text-green-500 text-sm text-center mt-4">Message sent successfully!</p>
-              )}
             </form>
           </div>
         </motion.div>
