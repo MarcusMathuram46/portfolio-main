@@ -25,21 +25,23 @@ export function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                I am a MERN Full Stack Developer with over <span className="text-foreground font-semibold">3 years of experience</span> building production-ready web applications. My expertise lies in architecting complex billing engines, financial reporting systems, and highly scalable admin portals.
+                I am a Full Stack Developer with <span className="text-foreground font-semibold">3+ years of experience</span> building enterprise SaaS applications, utility billing systems, and e-commerce platforms using React, Next.js, Node.js, MongoDB, MySQL, and TypeScript.
               </p>
               <p>
-                Currently, I am a Software Developer at <span className="text-foreground font-semibold">Honeycomb Technologies Ltd</span>, working full-time with our client <span className="text-foreground font-semibold">Aquametricas</span>. In this role, I architect critical submetering infrastructure, automated billing cycle engines, and comprehensive financial reporting modules to handle high-volume data management for property owners and tenants.
+                My expertise lies in designing scalable admin portals, REST APIs, reporting modules, and cloud deployments. I am deeply passionate about building responsive web applications, optimizing application performance, and integrating third-party APIs.
               </p>
               <p>
-                I am deeply passionate about performance optimization, crafting intuitive user interfaces, and designing robust backend architectures that solve real-world enterprise problems.
+                Currently, I am a Software Developer at <span className="text-foreground font-semibold">Honeycomb Technologies Ltd</span>, working full-time with our client <span className="text-foreground font-semibold">Aquametricas</span> to deliver scalable, production-ready software solutions.
               </p>
             </div>
             
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden glass p-2">
-                <div className="w-full h-full bg-secondary rounded-xl flex items-center justify-center">
-                  <span className="text-9xl">👨‍💻</span>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden glass p-2 relative z-10">
+                <img 
+                  src="https://i.postimg.cc/vBcXRtfK/Marcus-King.jpg" 
+                  alt="Marcus Mathuram" 
+                  className="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-500"
+                />
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>

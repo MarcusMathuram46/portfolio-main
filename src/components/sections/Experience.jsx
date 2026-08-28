@@ -11,12 +11,12 @@ const experiences = [
     type: "Remote",
     description: "Honeycomb Technologies Ltd is a dynamic professional organization committed to delivering innovative, collaborative digital solutions through high-quality software development and maintenance.",
     achievements: [
-      "Developing comprehensive admin and tenant portals for a large-scale utility submetering system using Next.js and TypeScript.",
-      "Architecting complex billing cycle engines and automated reporting modules to streamline utility management and data accuracy.",
-      "Managing backend data structures and queries using MySQL to ensure high-performance handling of submetering records.",
-      "Engineered a robust Admin Portal featuring advanced Order Management and Inventory Management systems for an e-commerce platform.",
-      "Optimized full-stack performance for the frontend website to enhance user experience and site speed.",
-      "Deployed and maintained the application infrastructure using Vercel for seamless continuous integration."
+      "Developing comprehensive admin and tenant portals for a large-scale utility submetering system using Next.js and TypeScript",
+      "Architecting complex billing cycle engines and automated reporting modules to streamline utility management and data accuracy",
+      "Managing backend data structures and queries using MySQL for high-performance handling of submetering records",
+      "Engineered a robust Admin Portal featuring advanced Order Management and Inventory Management systems for an e-commerce platform",
+      "Optimized full-stack performance for the frontend website to enhance user experience and site speed",
+      "Deployed and maintained application infrastructure using Vercel for seamless continuous integration"
     ]
   },
   {
@@ -26,8 +26,8 @@ const experiences = [
     type: "Remote",
     description: "Texspire delivers end-to-end digital solutions in UI/UX design, website development, and data science to empower businesses through innovative, AI-driven products.",
     achievements: [
-      "Developed a responsive hospital website using the MERN stack and Framer Motion, enhancing user engagement with smooth UI animations.",
-      "Delivered the project 25% ahead of schedule."
+      "Developed a responsive hospital website using the MERN stack and Framer Motion, enhancing user engagement with smooth UI animations",
+      "Successfully architected and deployed the complete platform within an accelerated 4-week development sprint"
     ]
   },
   {
@@ -37,22 +37,22 @@ const experiences = [
     type: "Remote",
     description: "Mackinlay Learning Hub is an innovative educational platform delivering industry-focused programs in HR, Business, Finance, Marketing and Sales.",
     achievements: [
-      "Designed and developed a fully responsive educational platform using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
-      "Crafted high-performance, visually engaging, and mobile-responsive user interfaces using React.js, Bootstrap, and Framer Motion.",
-      "Utilized Node.js, Express.js, and MongoDB to build robust backend systems and efficiently manage scalable databases.",
-      "Ensured cross-browser compatibility and mobile responsiveness to deliver consistent performance on all major platforms."
+      "Designed and developed a fully responsive educational platform using the MERN stack (MongoDB, Express.js, React.js, Node.js)",
+      "Crafted high-performance, visually engaging, mobile-responsive UIs using React.js, Bootstrap, and Framer Motion",
+      "Built robust backend systems and managed scalable databases using Node.js, Express.js, and MongoDB",
+      "Ensured cross-browser compatibility and mobile responsiveness"
     ]
   },
   {
     role: "MERN Full Stack Developer",
-    company: "Elshaddai IT Education",
+    company: "Elshaddai IT Education and Development",
     period: "12/2023 – 02/2025",
     type: "Madurai",
     description: "A premier IT education and development company providing industry-acclaimed courses and certifications that drive career growth.",
     achievements: [
-      "Reviewed code, debugged problems, and corrected issues.",
-      "Discussed project progress with customers, collected feedback on different stages and directly addressed concerns.",
-      "Used JavaScript, C, C++ as Programming Languages for Problem Solving."
+      "Reviewed code, debugged problems, and corrected issues",
+      "Discussed project progress with customers, collected feedback, addressed concerns directly",
+      "Used JavaScript, C, C++ for problem solving"
     ]
   },
   {
@@ -62,9 +62,7 @@ const experiences = [
     type: "Madurai, Tamil Nadu, India",
     description: "Independent freelance work focusing on end-to-end web development solutions for various clients.",
     achievements: [
-      "Freelance work involving customized web development.",
-      "Utilized Bootstrap, HTML, CSS, JavaScript.",
-      "Delivered complete web development services and maintained client relationships."
+      "Delivered web development services as a freelancer using Bootstrap, HTML, CSS, JavaScript"
     ]
   }
 ]
